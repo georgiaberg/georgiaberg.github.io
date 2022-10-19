@@ -9,18 +9,85 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play BLINKERS.</tw-noscript></noscript></tw-story>
-<tw-storydata name="BLINKERS" startnode="46" creator="Twine" creator-version="2.3.16" ifid="C8B7C0A6-E83D-4255-8EBA-F692429F6E29" zoom="0.6" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*
+<tw-storydata name="BLINKERS" startnode="31" creator="Twine" creator-version="2.3.16" ifid="C8B7C0A6-E83D-4255-8EBA-F692429F6E29" zoom="0.6" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*
 tw-sidebar {
     display: none;
 }
 */
 
+tw-debugger {
+	display: none;
+}
+
 tw-passage {
     font-family: Courier;
     font-size: 18;
-    color: white;
-  
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: black;
+border-radius: 0.2em;
+width: 100%;
+margin: 2em;
+padding: 2em;
+font-size:1em;
+background-color:#FAF9F6;
+border: solid #000 ;
+box-shadow: #FAF9F6  0;
+
+}
+tw-passage img {
+	display: block;
+	margin: 0 auto;
+}
+
+tw-passage[tags="glitch"] {
+      font-family: Courier;
+    font-size: 18;
+    color: black;
+
+
+border-radius: 0.2em;
+width: 100%;
+font-size:2em;
+background-color:#FF0000;
+  border: solid #FF0000 0.05em;
+box-shadow: #FF0000 0em 0em 0;
+@keyframes textflicker {    
+from {      
+text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;    
+}    
+to {      
+text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;    
+}  
+}    
+
+@keyframes boxflicker {    
+from {        
+box-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;    
+}    
+to 
+{      
+box-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;    
+}  
+}
+}
+
+tw-link {
+color:#FF00FF;
+}
+tw-link.hover {
+color:#FF00FF;
+}
+tw-link.visited {
+color:#FF00FF;
+}
+
+tw-link[tags="glitch"] {
+color:#FAF9F6;
+}
+tw-link.hover[tags="glitch"] {
+color:#FAF9F6;
+}
+tw-link.visited[tags="glitch"] {
+color:#FAF9F6;
 }
 
 /**
@@ -30,22 +97,25 @@ tw-passage {
 **/
 #audio-overlay{position:fixed;top:0;right:0;left:0;bottom:0;z-index:100000;background:#111}.lds-ring{display:block;position:relative;top:20%;margin:auto;width:20em;height:20em}.lds-ring div{box-sizing:border-box;display:block;position:absolute;width:18em;height:18em;margin:6px;border:6px solid #fff;border-radius:50%;-webkit-animation:lds-ring 1.2s cubic-bezier(.5,0,.5,1) infinite;animation:lds-ring 1.2s cubic-bezier(.5,0,.5,1) infinite;border-color:#fff transparent transparent transparent}.lds-ring div:nth-child(1){-webkit-animation-delay:-.45s;animation-delay:-.45s}.lds-ring div:nth-child(2){-webkit-animation-delay:-.3s;animation-delay:-.3s}.lds-ring div:nth-child(3){-webkit-animation-delay:-.15s;animation-delay:-.15s}@-webkit-keyframes lds-ring{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes lds-ring{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}input#audio-volume{width:100%;margin:2em 0}span#vol-title{position:relative;bottom:-1em;font-size:1rem;float:left}tw-link#audio-mute{display:inline-block;padding:.3em;width:90%;text-decoration:none;color:#111;background:#eee;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid #000}tw-link#audio-mute:hover{opacity:.8}tw-link#audio-mute:active{opacity:.6}tw-link#audio-mute span{display:inline-block;width:1em;position:relative;height:1em;top:.2em;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAABF0lEQVR4Ae2VJVREYRSEB3ftuFUaLhF6I22iF7TgLr1XvAc849CwiBac9Xtm3e97cefp/Pec7+mdH0mZrGtMoBomyAEHfjGHXKg07gNxeUS3BuMAqGZswE7YcOIYgqgG7BFlSQgTAgKysC2jNjQmghFQCOpMxq+QmQgmFATU4kcq/YlgfKB1lALUqFSukRIbEwpy4BTZPM/Bu9TaQ362KAsl56sAtSR+Sgv6RCFdr/gjBYiuj65c3J0eNEmXz95TgybocvmoJj3avf5l59L1iD/WglZCP7/uh8zgeQ6epdahaZENFIPCCFvEYNPW4JdNazBGzhkj6caCbSc02DRRu0+8RR/+rb7wx6D505HxCVKvG0zpp+yknHe8MBDkT/s8AAAAAElFTkSuQmCC);background-size:contain}tw-link#audio-mute.muted span{right:4px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAASElEQVR4Ae3WsQ0AMAjAsJ7ez9MTGEmlRGL3BJzPq6prw2DDYMNgw2DDYMOwh1kAMUygQIEC2RejANVxnVE9aDOqJ39GVZWqB5Z3r1ndBX5oAAAAAElFTkSuQmCC)}div#audio-volume{float:left}div#audio-controls{font:100% Georgia,serif;font-size:1.5em;position:fixed;width:8em;height:100%;padding:1em 2em;z-index:10000;top:0;left:0;bottom:0;background:#333;color:#eee;transition:left .3s;text-align:center}div#audio-controls.closed{left:-10.5em}div#audio-controls tw-link#audio-panel-toggle{display:inline-block;width:1.5em;position:absolute;height:1.5em;top:0;right:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAYklEQVR4Ae3MsQFAMAAEQMDEagCgN4EuVTrbPcACeUBugDNeSdMQomI0PmYdTEYD9DA5jcVoBKuxGY1kNQ6jGRSaGaIj8gw1aI/KYVUSNqsSzMpiVT2zMjlVN0fqVW5o2luMGHqkQmD9cPYAAAAASUVORK5CYII=);background-size:contain}div#audio-controls.closed tw-link#audio-panel-toggle{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAZElEQVR4Ae3TpwGAMBQAUfrEeHB0cDhcXBSO7ehlgBw9N8BL/YZO95r6uA/UEbOv+ylfHRJ9z1BWLynKJqmWohyS6ijKOygKCpmjZYqXTTA2xUiCsShGAMw8/Q3ArFgFMHek0w3WCaR74eO2YQAAAABJRU5ErkJggg==)}@media screen and (max-width:800px){div#audio-controls.closed{left:-12em}div#audio-controls.closed tw-link#audio-panel-toggle{right:-1.5em}}div#story-menu{margin:1em 0}tw-link.story-menu{width:100%;display:block;font-weight:400;background:#ccc;font-size:.9em;padding:.1em 0;color:#111;border:1px solid #333}tw-link.story-menu.hide{display:none}tw-link.story-menu:hover{opacity:.8}tw-link.story-menu:active{opacity:.6}input[type=range].hal{-webkit-appearance:none;width:100%;margin:2.25px 0}input[type=range].hal:focus{outline:0}input[type=range].hal::-webkit-slider-runnable-track{width:100%;height:15.5px;cursor:pointer;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d;background:#111;border-radius:0;border:0 solid #010101}input[type=range].hal::-webkit-slider-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer;-webkit-appearance:none;margin-top:-2.25px}input[type=range].hal:focus::-webkit-slider-runnable-track{background:#444}input[type=range].hal::-moz-range-track{width:100%;height:15.5px;cursor:pointer;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d;background:#111;border-radius:0;border:0 solid #010101}input[type=range].hal::-moz-range-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer}input[type=range].hal::-ms-track{width:100%;height:15.5px;cursor:pointer;background:0 0;border-color:transparent;color:transparent}input[type=range].hal::-ms-fill-lower{background:#000;border:0 solid #010101;border-radius:0;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d}input[type=range].hal::-ms-fill-upper{background:#111;border:0 solid #010101;border-radius:0;box-shadow:.4px .4px 1px #000,0 0 .4px #0d0d0d}input[type=range].hal::-ms-thumb{box-shadow:0 0 2.2px rgba(17,17,17,.1),0 0 0 rgba(30,30,30,.1);border:0 solid #fff;height:20px;width:11px;border-radius:0;background:rgba(255,255,255,.93);cursor:pointer;height:15.5px}input[type=range].hal:focus::-ms-fill-lower{background:#111}input[type=range].hal:focus::-ms-fill-upper{background:#444}
 /** End of HAL code */
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">/**
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+/**
  * Harlowe Audio Library (HAL), by Chapel, v2.3.0
  * for Harlowe 2.1.0 and higher
  * Released under the Unlicense, and dedicated to the public domain.
 **/
 ;!function(e){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}(navigator.userAgent||navigator.vendor||window.opera),function(){"use strict";window.Fast={filter:function(e,t){for(var o=e.length,n=[],a=0;a<o;a++)t(e[a],a,e)&&n.push(e[a]);return n},forEach:function(e,t){for(var o=e.length,n=0;n<o;n++)t(e[n],n,e)},map:function(e,t){for(var o=e.length,n=new Array(o),a=0;a<o;a++)n[a]=t(e[a],a,e);return n},find:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return e[n]},findIndex:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return n;return-1},some:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return!0;return!1}}}(),window.Chapel=window.Chapel||{},window.Chapel.options={preload:!0,loadDelay:0,muteOnBlur:!0,startingVol:.5,persistPrefs:!0,globalA:!0,showControls:!0,sidebarStartClosed:!0,volumeDisplay:!1,trackLoadLimit:500,totalLoadLimit:8e3,debug:!1},window.Chapel.debug=function(){Chapel.options.debug&&console.log.apply(null,arguments)},function(){"use strict";var n=$("tw-storydata"),o=/(.+?):(.+)/,t=/[\r\n]+/,a=/^["']/,r=/["']$/;function e(e){return Fast.map(Fast.filter(e.split(t),function(e){return e&&e.trim()&&e.includes(":")}),function(e){return e.trim()})}function i(e){return e.trim().replace(a,"").replace(r,"").trim()}function s(e){var t=e.match(o);return t instanceof Array?{key:i(t[1]),value:i(t[2])}:e}var u,l,c,p=n.find('tw-passagedata[name="hal.tracks"]'),d=null,p=(p.length&&(p=e(p.text()),u=[],l=[],Fast.forEach(p,function(e){var e=s(e);"string"==typeof e&&l.push(e),u.push([e.key,(e=e.value,Fast.map(e.split(","),i))])}),l.length&&console.error("Some track definitions could not be parsed:\n"+l.join("\n")+"\nPlease check these definitions and try again."),d=new Map(u)),n.find('tw-passagedata[name="hal.config"]')),m=null;function f(e){var t=n.attr("format-version");if(e)return t;var e=t.split("."),t=e[0],o=e[1],e=e[2],t=Number(t),o=Number(o);return[t=(t=Number.isNaN(t)?3:t)<1?3:t,o=Number.isNaN(o)?3:o,e=Number.isNaN(e)?0:e]}function h(){var e=f();return!(3<=e[0]&&3<=e[1])}function g(t){return function(){var e=[].slice.call(arguments).slice(1),e=t.apply(null,e);return"string"==typeof e||"boolean"==typeof e||"number"==typeof e?e:""}}p.length&&(p=e(p.text()),c={},Fast.forEach(Fast.map(p,function(e){return s(e)}),function(e){c[e.key]=e.value}),m=c),m&&Fast.forEach(Object.keys(m),function(e){var t=e,o=c[e],e=typeof Chapel.options[e];"boolean"==e?"true"===o?Chapel.options[t]=!0:"false"===o&&(Chapel.options[t]=!1):"number"==e?(o=Number(o),Number.isNaN(o)||(Chapel.options[t]=o)):"string"==e&&o&&(Chapel.options[t]=o)});var y=require("macros");if(window.Chapel=window.Chapel||{},window.Chapel.Macros={add:function(o){o&&"object"==typeof o&&Fast.forEach(Object.keys(o),function(e){var t;t=o[e=e],h()?y.add(e,g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any)):y.add(e,"Any",g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any))})}},window.Chapel.Get=Object.freeze({version:f(),isHarlowe3OrLater:3<=f()[0],storyTitle:n.attr("name"),IFID:n.attr("ifid"),useOldMacroAPI:h(),fromPassage:d}),Chapel.debug("Harlowe Version -> ",Chapel.Get.version.join(".")),Chapel.debug("Harlowe Major Version -> ",Chapel.Get.version[0]),Chapel.debug("Story Title -> ",Chapel.Get.storyTitle),Chapel.debug("Story IFID -> ",Chapel.Get.IFID),Chapel.Get.version[0]<2)throw new Error("The Harlowe Audio Library is only designed to work with Harlowe 2 and 3; you appear to be using Harlowe 1 or an otherwise invalid story format.","get.js -> initialization",176);Chapel.options.storagekey="%%hal-"+Chapel.Get.IFID+"-{"+Chapel.Get.storyTitle+"}",Chapel.debug("Storage Key -> ",Chapel.options.storagekey)}(),function(){"use strict";var t=Chapel.options,e=function(e,t){if(window.localStorage)try{e=""+e,"string"!=typeof t&&(t=JSON.stringify(t)),window.localStorage.setItem(e,t)}catch(e){console.error(e)}},o=function(e){if(window.localStorage)try{return e=""+e,window.localStorage.getItem(e)}catch(e){console.error(e)}},n=function(e){if(window.localStorage)try{e=""+e,window.localStorage.removeItem(e)}catch(e){console.error(e)}},a={loaded:[],classes:{},master:{volume:t.startingVol,mute:!1},groups:{playing:[],looping:[],custom:{}},mute:function(e){a.master.mute=!!e,$(document).trigger({type:":master-mute",mute:!!e})},isMuted:function(){return!!a.master.mute},volume:function(e){e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),a.master.volume=e),$(document).trigger({type:":master-volume",volume:e})},getVolume:function(){return a.master.volume},stopAll:function(){a.classes.Track&&Fast.forEach(a.classes.Track.list,function(e){e.stop()})},audioPlaying:function(){return!!a.groups.playing.length},savePrefs:function(){e(t.storagekey,a.master)},loadPrefs:function(){var e=o(t.storagekey);e&&"object"==typeof e&&e.hasOwnProperty("volume")&&"number"==typeof e.volume&&e.hasOwnProperty("mute")&&"boolean"==typeof e.volume&&(delete a.master,a.master=e)},clearPrefs:function(){n(t.storagekey)}},r={track:[":available",":loaded",":play",":stop",":mute",":volume"],master:[":master-mute",":master-volume"]};var i=r.track.concat(r.master);function s(e,t){if(!e||"string"!=typeof e||!e.trim())return null;e=Fast.filter(Fast.map(e.split(" "),function(e){return(e=":"!==(e=e.split(".")[0])[0]?":"+e:e)+".userland"}),function(e){return(t?i:r.track).includes(e)}).join(" ");return e&&e.trim()?e:null}a.data={parseEvent:s,bail:function(e){throw new Error(e,"audio.js -> bail()",140)}},a.on=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).on(e,t):console.error("Chapel.Audio.on() -> invalid callback")},a.one=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).one(e,t):console.error("Chapel.Audio.one() -> invalid callback")},a.off=function(e){(e=s(e,!0))&&$(document).off(e)},t.persistPrefs&&($(document).on(":master-mute",a.savePrefs),$(document).on(":master-volume",a.savePrefs)),$(document).on(":play",function(e){e.track.addToGroup("playing")}),$(document).on(":stop",function(e){e.track.removeFromGroup("playing")}),t.muteOnBlur&&$(window).on("blur",function(){a.isMuted()||(a.mute(!0),$(window).one("focus",function(){a.mute(!1)}))}),a.parseEvent=s,window.Chapel=window.Chapel||{},window.Chapel.Audio=a}(),function(){"use strict";var a=Chapel.Audio,o=a.data.pareEvent,r=a.data.bail,i=Chapel.options,t=$(document.createElement("div")).attr("id","audio-container").css("display","none").appendTo(document.body),s={aac:"audio/aac",caf:"audio/x-caf","x-caf":"audio/x-caf",mp3:'audio/mpeg; codecs="mp3"',mpeg:'audio/mpeg; codecs="mp3"',m4a:"audio/mp4",mp4:"audio/mp4","x-m4a":"audio/mp4","x-mp4":"audio/mp4",oga:"audio/ogg",ogg:"audio/ogg",opus:'audio/ogg; codecs="opus"',wav:"audio/wav",wave:"audio/wav",weba:"audio/webm",webm:"audio/webm"};function u(e,t,o){this instanceof u||r("Track: called without `new` operator"),e||r("Track: no id specified"),"string"!=typeof e&&r("Track: track id is not a string"),t&&(!Array.isArray(t)||t.length)||r("Track: no sources specified"),o?t=[].slice.call(arguments).slice(1):"string"==typeof t&&(t=[t]);var n=$(document.createElement("audio"));Fast.forEach(t,function(e){$(document.createElement("source")).attr({src:e,type:(e=(e=(e=(e=(e=e).split("."))[e.length-1]).includes("?")?e.split("?")[0]:e).toLowerCase().trim(),Object.keys(s).includes(e)||r('Track: unsupported file type "'+e+'"'),s[e])}).appendTo(n)}),n.attr({"data-track":"id","data-volume":1,"data-mute":!1}).one("canplaythrough.hal",function(){a.loaded.push(e)}),i.preload&&n.attr("preload","auto"),n[0].volume=+a.master.volume,this.id=e,this.$el=n,this.unwrap=n[0],this.sources=t}Object.assign(u,{list:[],is:function(e){return e instanceof u},has:function(t){return Fast.some(u.list,function(e){return e.id===t})},emit:function(e,t){$(document).trigger({type:e,track:t}),t.emit(e)},add:function(e,t,o){var n=new u(e,t=o?[].slice.call(arguments).slice(1):t);return u.list.push(n),n.$el.on("canplay",function(){u.emit(":available",n)}),n.$el.on("canplaythrough",function(){u.emit(":loaded",n)}),n.attach(),n},renew:function(){Fast.forEach(u.list,function(e){e.mute(e.isMuted()),e.volume(e.getVolume())})},getIdx:function(t){return Fast.findIndex(u.list,function(e){return e.id===t})},get:function(t){var e=Fast.find(u.list,function(e){return e.id===t});if(e)return e;throw new ReferenceError('There is no track with the id "'+t+'". Please check your spelling and capitalization.',"track.js -> Track.get()",155)},removeFromDOM:function(e){(e="string"==typeof e?u.get(e):e)&&u.is(e)?e.unattach():t.remove()},_runOnMultiple:function(e,t,o){e instanceof Array&&u.prototype.hasOwnProperty(t)&&Fast.forEach(e,function(e){(e=u.is(e)?e:u.get(e)||null)&&e[t].apply(e,o&&o instanceof Array?o:[])})}}),Object.assign(u.prototype,{constructor:u,emit:function(e){this.$el.trigger({type:e,track:this})},clone:function(){return new u(this.id,this.sources)},isAttached:function(){return $.contains(t[0],this.unwrap)},attach:function(){return this.isAttached()||this.$el.appendTo(t),this},unattach:function(){return this.isAttached()&&this.$el.remove(),this},isPlaying:function(){return!this.unwrap.paused},play:function(){var e=this;return this.unwrap.play(),u.emit(":play",this),this.$el.on("ended",function(){e.unwrap.loop||(e.unwrap.currentTime=0,u.emit(":stop",e))}),this},playWhenPossible:function(){var t=this;return this.unwrap.play().then(function(){u.emit(":play",t),t.$el.on("ended",function(){t.unwrap.loop||(t.unwrap.currentTime=0,u.emit(":stop",t))})},function(e){$(document).one("click mousedown keydown touchstart",function(){t.play()})}).catch(function(e){console.error(e)}),this},forcePlay:function(){var e=this,t=$(document.createElement("a")).css("display","none").appendTo(document.body).on("click",function(){e.play()});setTimeout(function(){t.trigger("click")},safeAudioStart)},pause:function(){return this.unwrap.pause(),u.emit(":pause",this),this},stop:function(){return this.unwrap.pause(),this.unwrap.currentTime=0,u.emit(":stop",this),this},mute:function(e){return this.$el.attr("data-mute",e=!!e),a.master.mute?this.unwrap.muted=!0:this.unwrap.muted=e,u.emit(":mute",this),this},isMuted:function(){var e=this.$el.attr("data-mute");return"boolean"==typeof e?e:"false"!==e},toggleMute:function(){return this.mute(!this.isMuted()),this},volume:function(e){return e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),this.$el.attr("data-volume",e),this.unwrap.volume=e*a.master.volume),u.emit(":volume",this),this},getVolume:function(){return Number(this.$el.attr("data-volume"))},addToGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e];return Fast.some(t,function(e){return o.id===e.id})||t.push(this),this},removeFromGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e],e=Fast.findIndex(t,function(e){return e.id&&e.id===o.id});return t.splice(e,1),this},loop:function(e){return this.unwrap.loop=!!e,this.unwrap.loop?this.addToGroup("looping"):this.removeFromGroup("looping"),this},isLooping:function(){return!!this.unwrap.loop},toggleLoop:function(){return this.loop(!this.isLooping()),this},seek:function(e){return e<0?e=this.unwrap.duration-e:e>this.unwrap.duration&&(e=this.unwrap.duration),this.unwrap.currentTime=e,this},fadeIn:function(e){var t=this,o=(e=e||1,this.getVolume());return this.volume(0),this.play(),this.$el.animate({volume:o*a.master.volume},1e3*e,function(){t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeOut:function(e){e=e||1;var t=this,o=this.getVolume();return this.$el.animate({volume:0},1e3*e,function(){t.stop(),t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeTo:function(e,t){var o=this;if(e=e||1,t=Number(t),!Number.isNaN(t))return 1<t?t=1:t<0&&(t=0),this.$el.animate({volume:t*a.master.volume},1e3*e,function(){o.volume(t),u.emit(":volume",o),u.emit(":fade",o)}),this;alert("ivalid volume level")},delay:function(e,t){var o=this;"function"==typeof t&&(e=Number(e),(Number.isNaN(e)||e<0)&&(e=0),setTimeout(function(){t.call(o,o,e)},e))},on:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.on() -> invalid callback"),this;(e=o(e))&&this.$el.on(e,t)},one:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.one() -> invalid callback"),this;(e=o(e))&&this.$el.one(e,t)},off:function(e){(e=o(e))&&this.$el.off(e)}}),a.classes.Track=u,a.newTrack=function(){try{return u.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.newTrack() -> see the console for more information.")}},a.track=function(e){try{return u.get(e)}catch(e){console.error(e.message),alert("Error in A.track() -> see the console for more information.")}},$(document).on(":master-mute",u.renew),$(document).on(":master-volume",u.renew)}(),function(){"use strict";var n=Chapel.Audio,a=n.classes.Track,o=(n.data._extend,/(play)?list:(.+)/i);n.createGroup=function(e,t,o){o=o?[].slice.call(arguments).slice(1):t;t=e,(e=o)&&Array.isArray(e)||(e=[]),n.groups.custom[t]=Fast.map(e,function(e){return a.get(e)})},n.group=function(e){if(!(this instanceof n.group))return new n.group(e);if(Object.keys(n.groups.custom).includes(e))this.members=n.groups.custom[e];else{if(!(n.groups[e]&&n.groups[e]instanceof Array))throw new ReferenceError('There is no group with the id "'+id+'". Please check your spelling and capitalization.',"group.js -> A.group()",29);this.members=n.groups[e]}var t;o.test(e)&&(t=e.match(o)[2])&&t.trim()&&(this.members=n.playlist(t).tracks),Array.isArray(this.members)||(this.members=[],console.error('Could not find members for track group "'+e+'"!'))},Object.assign(n.group,{is:function(e){return this instanceof n.group},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.members,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.group.prototype,{constructor:n.group,_run:function(){n.group._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},play:function(){return this._run("play"),this},pause:function(){return this._run("pause"),this},stop:function(){return this._run("stop"),this},mute:function(e){return this._run("mute",e),this},volume:function(e){return this._run("volume",e),this},loop:function(e){return this._run("loop",e),this}})}(),function(){"use strict";var e=Chapel.Audio,a=e.classes.Track;e.data._extend;function n(e,t){if(!(this instanceof n))return new n(e,t);this.id=e,this.tracks=t.map(function(e){return a.get(e)}),this.looping=!1,this.current="",this.playing=!1}Object.assign(n,{list:{},is:function(e){return e instanceof n},add:function(e,t,o){return o&&(t=[].slice.call(arguments).slice(1)),n.list[e]=new n(e,t),n.list[e]},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.tracks,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.prototype,{constructor:n,clone:function(){return new n(this.id,this.tracks.map(function(e){return e.id}))},_run:function(){n._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},volume:function(e){return this._run("volume",e),this},mute:function(e){return this._run("mute",e),this},shuffle:function(){for(var e,t,o=this.tracks,n=o.length-1;0<n;n--)e=Math.floor(Math.random()*(n+1)),t=o[n],o[n]=o[e],o[e]=t;return this.tracks=o,this},random:function(){return this.tracks[Math.floor(Math.random()*this.tracks.length)]},isPlaying:function(){return this.playing},nowPlaying:function(){return a.get(this.current)},play:function(e){var t=this;if((e=e||(t.current?Fast.findIndex(t.tracks,function(e){return e.id===t.current}):0))>=t.tracks.length&&t.looping)e=0;else if(e>=t.tracks.length)return t.current="",void(t.playing=!1);var o=t.tracks[e],n=o.isLooping();return o.loop(!1),o.play(),t.playing=!0,setTimeout(function(){o.isPlaying()||(t.playing=!1)},20),t.current=o.id,o.$el.one("ended.playlist",function(){e++,o.loop(n),t.play(e)}),t},loop:function(e){return this.looping=!!e,this},isLooping:function(){return this.looping},stop:function(){var e;return this.current&&this.isPlaying()?(e=this.nowPlaying())&&(e.stop(),e.$el.off(".playlist")):this._run("stop"),this.current="",this.playing=!1,this},pause:function(){var e;return this.current&&this.isPlaying()&&((e=this.nowPlaying())&&e.pause()),this.playing=!1,this}}),e.classes.Playlist=n,e.createPlaylist=function(){try{n.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}},e.playlist=function(e){try{var t=n.list[e]||null;if(t)return t;throw new ReferenceError('There is no playlist with the id "'+e+'". Please check your spelling and capitalization.',"list.js -> A.playlist()",171)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}}}(),function(){"use strict";var t=Chapel.Audio,o=t.classes.Track,n=t.classes.Playlist;function a(t,o){if("object"!=typeof o)throw new TypeError("Invalid extension.","extensions.js -> _extend()",8);Fast.forEach(Object.keys(o),function(e){if(void 0!==t[e])throw new Error('Invalid extension: cannot clobber existing property "'+e+'".',"extensions.js -> _extend()",8);t[e]=o[e]})}t.extend=function(e){a(Audio,e)},o.extend=function(e){a(o,e)},o.extendPrototype=function(e){a(o.prototype,e)},t.extendTrack=o.extend,t.extendTrackProto=o.extendPrototype,t.group.extend=function(e){a(t.group,e)},t.group.extendPrototype=function(e){a(t.group.prototype,e)},t.extendGroup=t.group.extend,t.extendGroupProto=t.group.extendPrototype,n.extend=function(e){a(n,e)},n.extendPrototype=function(e){a(n.prototype,e)},t.extendPlaylist=n.extend,t.extendPlaylistProto=n.extendPrototype}(),function(){"use strict";var e,t,o,n,a,r,i,s=Chapel.options;s.showControls&&(e=$(document.createElement("div")).attr("id","story-menu").css("display","none"),t=$(document.createElement("span")).attr("id","vol-title").append("Volume"),s.volumeDisplay||t.css("display","none"),o=$(document.createElement("input")).attr({id:"audio-volume",type:"range",min:1,max:99,step:1,title:"Volume"}).addClass("hal"),(a=Math.trunc(100*window.Chapel.Audio.master.volume))<0?a=0:100<a&&(a=100),o.attr("value",a),n=function(e){void 0===e&&(e=o.val()),t.empty().append("Volume "+e)},o.on("input",function(){window.Chapel.Audio.volume($(this).val()/100),n($(this).val())}),a=$(document.createElement("tw-link")).attr({id:"audio-mute",title:"Mute"}).append("Mute <span></span>").on("click",function(e){e.preventDefault(),$(this).toggleClass("muted"),Chapel.Audio.mute(!Chapel.Audio.isMuted())}),Chapel.Audio.isMuted()&&a.addClass("muted"),r=$(document.createElement("tw-link")).attr("id","audio-panel-toggle").on("click",function(e){e.preventDefault(),i.toggleClass("closed")}),i=$(document.createElement("div")).attr("id","audio-controls").append(e,t,o,a,r).appendTo(document.body),s.sidebarStartClosed&&i.addClass("closed"),window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.controls={$panel:i,$volume:o,$mute:a,$user:e,close:function(){i.addClass("closed")},open:function(){i.removeClass("closed")},toggle:function(){i.toggleClass("closed")},hide:function(){i.css("display","none")},show:function(){i.css("display","block")},updateVolume:n})}(),function(){"use strict";var s=Chapel.options,t=State,e=$(document.createElement("div")).attr("id","audio-overlay").css("display","none").appendTo(document.body);function o(){e.css("display","block").append('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>')}function u(){e.fadeOut(function(){e.empty()})}window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.loadScreen={show:o,dismiss:u,kill:function(){$("#audio-overlay").remove()}},window.Chapel.Audio.$overlay=e,window.Chapel.Audio.preload=function(){var a,e,r,i;Chapel.debug("This is a mobile browser -> ",$.browser.mobile),t.pastLength||t.futureLength||$.browser.mobile||($(document).ready(function(){o()}),a=100+s.loadDelay,e=Chapel.Audio.classes.Track.list,r=Chapel.Audio.loaded,e.length?(i=Fast.map(e,function(e){return e.id}),0<s.totalLoadLimit&&setTimeout(function(){u()},s.totalLoadLimit),function e(){var t,o,n;i.length?(t=i.shift(),r.includes(t)?e():(o=Chapel.Audio.classes.Track.get(t)).unwrap.readyState<2?(n=!1,o.$el.one("canplaythrough.hal",function(){e(),n=!0}),setTimeout(function(){n||(o.$el.off("canplaythrough.hal"),e())},s.trackLoadLimit)):(r.includes(t)||r.push(t),e())):setTimeout(u,a)}()):setTimeout(u,a))}}(),function(){"use strict";var e,t,o=Chapel.options.storagekey+"_hal_restart_",n=(Chapel.debug("HAL Session Key -> ",o),window.sessionStorage?(Chapel.debug("Session Storage Available"),e=function(e,t){window.sessionStorage.setItem(o+e,t)},t=function(e){return window.sessionStorage.getItem(o+e)}):(Chapel.debug("Session Storage Unavailable"),e=function(){},t=function(){},console.warn("Session storage is unavailable...")),{save:e,load:t});window.Chapel.Audio.state={_store:n,saveTracks:function(){var e;try{e=Fast.map(Chapel.Audio.classes.Track.list,function(e){return{id:e.id,sources:e.sources}}),Chapel.debug("Session Saved (Tracks) -> ",e),e=JSON.stringify(e),n.save("tracks",e)}catch(e){console.error(e.message)}},loadTracks:function(){var e;try{e=(e=n.load("tracks"))&&JSON.parse(e),Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Tracks) -> ",e),Fast.forEach(e,function(e){e.id&&e.sources&&!Chapel.Audio.classes.Track.has(e.id)?Chapel.Audio.newTrack.apply(null,[e.id].concat(e.sources)):Chapel.debug("Track reloading skipped.")}))}catch(e){console.error(e.message)}},savePlaylists:function(){try{var o=Chapel.Audio.classes.Playlist.list,e=Fast.map(Object.keys(o),function(e){var t={};return t.tracks=Fast.map(o[e].tracks,function(e){return e.id}),t.id=o[e].id,t});Chapel.debug("Session Saved (Playlists) -> ",e),e=JSON.stringify(e),n.save("playlists",e)}catch(e){console.error(e.message)}},loadPlaylists:function(){var e;try{(e=(e=n.load("playlists"))&&JSON.parse(e))&&Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Playlists) -> ",e),Fast.forEach(e,function(e){e.id&&e.tracks&&Chapel.Audio.createPlaylist(e.id,e.tracks)}))}catch(e){console.error(e.message)}},saveGroups:function(){var t;try{t={},Fast.forEach(Object.keys(Chapel.Audio.groups.custom),function(e){t[e]=Fast.map(Chapel.Audio.groups.custom[e],function(e){return"string"==typeof e?e:e.id})}),Chapel.debug("Session Saved (Groups) -> ",t),t=JSON.stringify(t),n.save("groups",t)}catch(e){console.error(e.message)}},loadGroups:function(){var t;try{(t=(t=n.load("groups"))&&JSON.parse(t))&&"object"==typeof t&&(Chapel.debug("Session Loaded (Groups) -> ",t),Fast.forEach(Object.keys(t),function(e){Fast.map(t[e],function(e){return Chapel.Audio.classes.Track.get(e)})}),Chapel.Audio.groups.custom=t)}catch(e){console.error(e.message)}}}}(),function(){"use strict";var e=Chapel.options;e.globalA&&void 0===window.A&&(Chapel.debug("Created global A interface."),window.A=window.Chapel.Audio),Chapel.Get.fromPassage&&(Chapel.debug("Loading tracks from track def special passage -> ",Chapel.Get.fromPassage),Chapel.Get.fromPassage.forEach(function(e,t){Chapel.Audio.newTrack.apply(null,[t].concat(e))})),$(document).on("unload",function(){Chapel.debug("User Prefs Saved"),window.Chapel.Audio.savePrefs()}),Chapel.Audio.classes.Track.renew(),Chapel.Audio.controls&&Chapel.Audio.controls.updateVolume(),Chapel.Get.isHarlowe3OrLater&&($(window).on("unload",function(){Chapel.debug("HAL State Saved"),Chapel.Audio.state.saveTracks(),Chapel.Audio.state.savePlaylists(),Chapel.Audio.state.saveGroups()}),Chapel.debug("HAL State Loaded"),Chapel.Audio.state.loadTracks(),Chapel.Audio.state.loadPlaylists(),Chapel.Audio.state.loadGroups()),e.persistPrefs&&(Chapel.debug("User Prefs Loaded"),Chapel.Audio.loadPrefs())}(),function(){"use strict";var i,s,e,u,t;Chapel.options.showControls&&(i=Engine,s=Chapel.Audio.controls.$user,e=function(){return"none"!==s.css("display")},u=function(){return e()||s.css("display","block"),s},t=function(){return e()&&s.css("display","none"),s},Chapel.Audio.menu={hide:t,show:u,isShown:e,links:{add:function(e,t,o){var n,a;if(!e||"string"!=typeof e)return r="undefined",alert(r),void console.error(r);o||"function"!=typeof t?(t&&"string"==typeof t&&(n=t),o&&"function"==typeof o&&(a=o)):(a=t,n=null);var r=$(document.createElement("tw-link")).append(e).attr({tabindex:"0",name:e.toLowerCase().trim()}).on("click",function(){n&&i.goToPassage(n),a&&a()}).addClass("story-menu").appendTo(s);return u(),r},clear:function(){return s.empty(),t()},hide:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').addClass("hide")},show:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').removeClass("hide")},toggle:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').toggleClass("hide")},remove:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').remove()}}})}(),function(){"use strict";var n=Chapel.Audio;function o(e){return e&&"function"==typeof e}function a(e,t){if(!e||"string"!=typeof e)return null;switch(e=e.toLowerCase().trim()){case"isplaying":e="isPlaying";break;case"playwhenpossible":e="playWhenPossible";break;case"ismuted":e="isAMuted";break;case"togglemute":e="toggleMute";break;case"getvolume":e="getVolume";break;case"islooping":e="isLooping";break;case"toggleloop":e="toggleLoop";break;case"fadein":e="fadeIn";break;case"fadeout":e="fadeOut";break;case"fadeto":e="fadeTo";break;case"stopall":e="stopAll"}if("isPlaying"===e&&"master"===t&&(e="audioPlaying"),"group"===t){if(o(n.group.prototype[e]))return e}else if("master"===t){if(o(n[e]))return e}else if(o(n.classes[t].prototype[e]))return e;throw new ReferenceError('Cannot run the command: "'+e+'" on the API "'+t+'". The command may be invalid, or this may be a bug in HAL.',"macros.js -> getCommand()",10)}window.Chapel.Macros.add({newtrack:function(){var e=[].slice.call(arguments);try{return n.newTrack.apply(null,e)}catch(e){alert("Error in the (newtrack:) macro: "+e.message)}},newplaylist:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createPlaylist(e,t)}catch(e){alert("Error in the (newplaylist:) macro: "+e.message)}},newgroup:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createGroup(e,t)}catch(e){alert("Error in the (newgroup:) macro: "+e.message)}},masteraudio:function(e){try{return e=a(e,"master"),n[e].apply(null,[].slice.call(arguments).slice(1))}catch(e){alert("Error in the (masteraudio:) macro: "+e.message)}},track:function(e,t){try{var o=n.track(e);return o[t=a(t,"Track")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (track:) macro: "+e.message)}},playlist:function(e,t){try{var o=n.playlist(e);return o[t=a(t,"Playlist")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (playlist:) macro: "+e.message)}},group:function(e,t){try{var o=n.group(e);return o[t=a(t,"group")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (group:) macro: "+e.message)}}})}();
-/** End of HAL code */</script><tw-passagedata pid="1" name="wake up" tags="bedroom" position="435,164" size="100,100">
+/** End of HAL code */</script><tw-passagedata pid="1" name="wake up" tags="bedroom" position="510,164" size="100,100">The humming in your right temple wakes you up. You set your alarm for 8AM the night before, but it still shocks you a little.
+
 &lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1czb_upW7A4S1xogsaGnX1GrV2_qRLYpc&quot;&gt;
 
-The humming in your right temple wakes you up. You set your alarm for 8AM the night before, but it still shocks you a little.
-
 //Good morning Jane,// the Blinker pipes up from within your mind, more metallic than any of your own thoughts.
+---
 
-(if:(history: where its tags contains &quot;mornin&quot;)&#39;s length is 3)[[[Get out of bed-&gt;ACT ONE]]]
-(if:(history: where its name contains &quot;messages&quot;)&#39;s length is 0)[[[Read messages.-&gt;messages]]] (if:(history: where its name contains &quot;news&quot;)&#39;s length is 0)[[[Read news.-&gt;news]]] (if:(history: where its name contains &quot;porn&quot;)&#39;s length is 0)[[[Watch pornography.-&gt;porn]]] 
-</tw-passagedata><tw-passagedata pid="2" name="messages" tags="mornin" position="109,349.3333333333333" size="100,100">//Blinker, get messages// you murmer, as your Blinker captures the movements of your mouth.
+[[Read messages.-&gt;messages]]
+[[Read news.-&gt;news]]
+[[Watch pornography.-&gt;porn]]
+[[Get out of bed.-&gt;ACT ONE]]
+</tw-passagedata><tw-passagedata pid="2" name="messages" tags="mornin" position="109,349" size="100,100">//Blinker, get messages// you murmer, as your Blinker captures the movements of your mouth.
 
 {
  (live: 1s)[
@@ -74,7 +144,7 @@ The humming in your right temple wakes you up. You set your alarm for 8AM the ni
     [[Close messages -&gt;wake up]]
  ]
 }
-</tw-passagedata><tw-passagedata pid="3" name="news" tags="mornin" position="368.3333333333333,351" size="100,100">//Blinker, get news// you murmer.
+</tw-passagedata><tw-passagedata pid="3" name="news" tags="mornin" position="481.33333333333337,376" size="100,100">//Blinker, get news// you murmer.
 
 {
  (live: 1s)[
@@ -103,11 +173,13 @@ The humming in your right temple wakes you up. You set your alarm for 8AM the ni
     [[Close news-&gt;wake up]]
  ]
 }
-</tw-passagedata><tw-passagedata pid="4" name="porn" tags="mornin" position="558,345" size="100,100">&quot;Porn&quot;, you ask your Blinker. An input box fills your vision and you search for an old favourite:
-(force-input-box:&quot;=XX=&quot;,&quot;Galactic Gangbang II: In Space, Nobody Hears You Cum&quot;)
-[[Search-&gt;porns]]
+</tw-passagedata><tw-passagedata pid="4" name="porn" tags="mornin" position="868,200" size="100,100">&quot;Porn&quot;, you ask your Blinker. An input box fills your vision and you search for an old favourite:
 
-</tw-passagedata><tw-passagedata pid="5" name="get up" tags="bedroom" position="675,539.6666666666666" size="100,100">You peel back the skin of a few onions, and begin to chop them. It&#39;s not long before your eyes start to burn. You blot the tears away with the bottom of your T-shirt, your eyes tightly closed.
+(force-input-box:2bind $yesfather,&quot;=XX=&quot;,&quot;Galactic Gangbang II: In Space, Nobody Hears You Cum&quot;)
+(live: 1s)[ (if:$yesfather is &quot;Galactic Gangbang II: In Space, Nobody Hears You Cum&quot;)[ (stop:) (t8n-depart:&quot;blur&quot;)+(t8n-arrive:&quot;blur&quot;)+(t8n-time:1s)[[Search.-&gt;porns]] ] ]
+
+
+</tw-passagedata><tw-passagedata pid="5" name="get up" tags="bedroom" position="675,539" size="100,100">You peel back the skin of a few onions, and begin to chop them. It&#39;s not long before your eyes start to burn. You blot the tears away with the bottom of your T-shirt, your eyes tightly closed.
 
 A Blinker notification makes you cock your head up.
 
@@ -115,222 +187,31 @@ A Blinker notification makes you cock your head up.
  (live: 3s)[
     (stop:)
     //There is someone at your door.//
+		(track: &#39;wakeup&#39;, &#39;stop&#39;)
  ]
 }
 
-{
- (live: 4s)[
-    (stop:)
-    [[Go answer the door.-&gt;go-to-door]]
- ]
-}
 {
  (live: 4s)[
     (stop:)
 	[[Check front door camera.-&gt;fromt-door-cam]]
  ]
-}</tw-passagedata><tw-passagedata pid="6" name="rushing to work" tags="diner-front" position="4861,884" size="100,100">You get to work with five minutes to spare. Your Blinker waits another minute to clock you in, before which you wait at the back of the kitchen. 
-
-&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1UYZiHYC_NUAt2qtCa8mqUhvaHxjZUOQV&quot;&gt;
-
-A flurry of messages from the work chat appear the moment your Blinker clocks in.
-{
- (live: 1s)[
-    (stop:)
-    //Gabby: u guys, the guy on 23 looks exactly like luc lester//
- ]
-}
-{
- (live: 2s)[
-    (stop:)
-    //Gabby: 1 Attachment//
- ]
-}
-{
- (live: 3s)[
-    (stop:)
-    //Ella: no that&#39;s literally him//
- ]
-}
-{
- (live: 4s)[
-    (stop:)
-    //Gabby: can someone ask him?//
- ]
-}
-
-
-{
- (live: 5s)[
-    (stop:)
-    [[&quot;who has his table? did he say why hes here?&quot;-&gt;heads]]
- ]
-}
-
-{
- (live: 5s)[
-    (stop:)
-	[[&quot;i kind of know him lol we&#39;re family friends&quot;-&gt;front or back dialogue]]
- ]
-}</tw-passagedata><tw-passagedata pid="7" name="front or back dialogue" tags="diner-front" position="4719,1009" size="100,100">The chat ran silent as it always does when someone said something interesting, as everyone available to talk streamed into the kitchen to ask you questions. 
-
-You let everyone know what you meant by [[family friend-&gt;family friend]]. You haven&#39;t seen him in years, your parents had worked for him closely, no you don&#39;t know anything about the new release, no you&#39;re not filthy rich.
-
-[[&quot;I&#39;ll say hi,&quot; you agree to your coworker&#39;s pleas.-&gt;say hi]]</tw-passagedata><tw-passagedata pid="8" name="heads" tags="diner" position="4988,990" size="100,100">You brace yourself to [[say hi-&gt;say hi]] to him when you go by his section. There&#39;s no use in running from someone who has backdoor access to your mind.</tw-passagedata><tw-passagedata pid="9" name="say hi" tags="diner-closeup" position="4972,1198" size="100,100">He sticks out like a sore thumb. He&#39;s wearing a casual kind of green jacket, under which you can still see the stiffness of his posture as he munches on a paper tray of loaded fries. 
-
-&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1LCXqlz10fMojuep97_quLkWl3HGmxioK&quot;&gt;
-
-As you pass the table in front of his, he motions for you to sit across from him.
-
-[[You sit down.-&gt;sit]]</tw-passagedata><tw-passagedata pid="10" name="family friend" tags="diner" position="4768,1232" size="100,100">Family friend is a misnomer.
-
-{
- (live: 2s)[
-    (stop:)
-    Your parents had worked for Black Box Corperations for decades. Lucas Lester frequently invited his closest employees over for his monthly dinners. You were the only child who ever went. 
- ]
-}
-
-{
- (live: 5s)[
-    (stop:)
-    The dinners (link:&quot;terrified&quot;)[excited] you, you could barely go to sleep the night before. Everyone at the dinners was so (link:&quot;cold&quot;)[knowledgeable]. 
- ]
-}
-
-
-{
- (live: 8s)[
-    (stop:)
-	When it was time for the grown-ups to talk, (link:&quot;they would lock you in&quot;)[they would let you stay in] the Cherry Room. It was the (link:&quot;hottest&quot;)[warmest] room in the house.
- ]
-}
-
-{
- (live: 11s)[
-    (stop:)
-After your parents (link:&quot;disappeared&quot;)[went to live abroad], you never (link:&quot;had to go&quot;)[got invited] to another one of Lester&#39;s dinners.
- ]
-}
-
-{
- (live: 15s)[
-    (stop:)
-(link-undo:&quot;Anyways,&quot;)
- ]
-}
-
-
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="11" name="sit" tags="diner-closeup" position="4996,1403" size="100,100">&quot;Hi Jane,&quot; he says. &quot;God, it&#39;s been years since I&#39;ve seen you, how are you?&quot;
-
-&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=10Oj02cQDx56szZNLCqMv0VGXCLVeF3iN&quot;&gt;
-
-You fight your eyes from narrowing, and give an automative &quot;I&#39;m well, how are you?&quot;
-
-&quot;I&#39;m well, I am.&quot; He nods and smiles. &quot;I was hoping to find you here, wanted to give you this in person.&quot;
-
-He pulls a lavender envalope out of his bag and places it in front of you.
-
-&quot;It&#39;s an invitation. I know it&#39;s been a long time since you&#39;ve came to one of my dinner parties, but you should come along.&quot;
-
-You take the envalope, and open it. It&#39;s the same kind of stationary your parents used to receive every month.
-
-&quot;It&#39;s a big party tonight. We&#39;re unveiling something special, something your parents have been working on for a long time.&quot;
-
-[[&quot;What is it?&quot;-&gt;what is it]]
-[[&quot;You&#39;ve spoken to my parents?&quot;-&gt;spoken parents]]</tw-passagedata><tw-passagedata pid="12" name="what is it" tags="diner-closeup" position="4806,1603" size="100,100">&quot;Hey, I can&#39;t tell you now,&quot; he says. &quot;That would ruin the whole point of the party, wouldn&#39;t it?&quot;
-
-You nod. 
-
-&quot;So I&#39;ll see you there tonight?&quot; he asks.
-
-[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there ]]
-[[&quot;I&#39;m sorry, I can&#39;t make it tonight.&quot;-&gt; wont be there ]]
-(if:$ending is true)[[[&quot;No.&quot;-&gt; no]]]
-</tw-passagedata><tw-passagedata pid="13" name="spoken parents" tags="diner-closeup" position="4999,1606" size="100,100">&quot;Well,&quot; he says. &quot;They&#39;re very particular people, as you know. I haven&#39;t spoken to them in years, but they send me over their work every few months, and I suppose that&#39;s what matters. They&#39;ve almost been more productive since they&#39;ve decided to travel. Bohemian souls, I suppose.&quot;
-
-The airy tone with which he speaks makes you want to ask him where they are. He speaks like this is some inside joke you are both a part of.
-
-&quot;So I&#39;ll see you there tonight?&quot; he asks.
-
-[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there ]]
-[[&quot;I&#39;m sorry, I don&#39;t think I&#39;ll be able to make it.&quot;-&gt; wont be there ]]
-(if:$ending is true)[[[&quot;No.&quot;-&gt; no]]]</tw-passagedata><tw-passagedata pid="14" name="be there " tags="diner-closeup" position="4700,1801" size="100,100">(set: $friends to false)
-&quot;Great to hear. I&#39;ll have the official party invite forwarded to your Blinker. See you at seven.&quot;
-
-[[&quot;See you at seven.&quot;-&gt;work]]</tw-passagedata><tw-passagedata pid="15" name=" wont be there " tags="diner-closeup" position="4899,1803" size="100,100">(set: $friends to true)
-
-note:: edit this so it&#39;s not this!! don&#39;t want the implications of having to arrange this party. just make him inisist/ask her to move her schedule around
-He furrows his brows. &quot;Do you have something else that needs attending to?&quot;
-
-&quot;Yes,&quot; you say. &quot;	&quot; 
-
-You weren&#39;t happy to have to go to Ella&#39;s birthday party before, you were even dreading it. Now you&#39;re greatful for it.
-
-&quot;You know, it could be moved to another date.&quot;
-
-&quot;The dinner?&quot;
-
-&quot;No, the birthday party. I had one guest reschedule her wedding. I&#39;m sure that if I invited the birthday girl to the event of the year, she wouldn&#39;t mind putting her party off by a week.&quot;
-
-I turn to the bar, where Ella and Mandy are eavesdropping. They both give me a massive nod and two thumbs up.
-
-&quot;Are either of you the birthday girl?&quot; he asks them.
-
-&quot;Yes, me,&quot; Ella says, beaming.
-
-&quot;Well, how about you invite a few friends to my party, and you can celebrate your birthday there?&quot;
-
-Ella spins around to the hostess station to tell everyone the party has moved to the famous Lester estate.
-
-&quot;I&#39;ll send everyone the official Blinker invite. See you at seven?&quot; he asks.
-
-[[&quot;Yeah, see you there.&quot;-&gt;work]]</tw-passagedata><tw-passagedata pid="16" name=" no" tags="diner-closeup" position="5098,1804" size="100,100">The harshness of your own voice surprises you. You say it again, softer.
-
-&quot;No. I won&#39;t be there tonight.&quot;
-
-He looks furious for a split second, then sinks into a cordial smile.
-
-&quot;Well, that disappoints me. It was always nice having you around Janey.&quot;
-
-Knowing you have nothing nice to say to him, you get up from the booth.
-
-You walk past Ella and Tanya who had been eavesdropping at the bar.
-
-You walk all the way into the kitchen, then the employee bathroom. You lock the door and sit on the toilet for a few minutes while you catch your breath. 
-
-//Vital sign interupption detected. You have been excused from work, please clock out at your earliest convience. //</tw-passagedata><tw-passagedata pid="17" name="work" tags="" position="4726,1965" size="100,100">It&#39;s a slow day, and the only table you have is an oldish married couple in biker tees.
-
-You end up with a section facing away from Lester&#39;s table. You resist the urge to turn around check if he&#39;s left yet until three o&#39;clock, by which time a group of three guys in baseball caps has occupied his booth.
-
-His insistance on your attendance doesn&#39;t make sense to you. He had kept an email correspondance with you when your parents left, offering you internship opportunities or to connect you with people who wanted to network.
-
-You questioned his motives less than you feared them. Maybe that&#39;s why your parents went along with him for so long, following him blindly, out of fear.
-
-A Blinker notification shocks you out of your thoughts. It&#39;s the [[party invite -&gt;party invite]].</tw-passagedata><tw-passagedata pid="18" name="party invite" tags="party-invite" position="4629,2175" size="100,100">The details of the invite repeat twice in your head as the notification flashes. You dismiss it.
-
-The invite tells your workplace app you&#39;re excused a few hours early for an important event, and prompts you to clock out at your earliest opportunity. 
-(set: $time to 6)
-(set: $redroom to false)
-[[Clock out and head home.-&gt;go]]</tw-passagedata><tw-passagedata pid="19" name="the mansion." tags="mansion" position="607,2096" size="100,100">(if: $time &lt; 9)[
+}</tw-passagedata><tw-passagedata pid="6" name="the mansion." tags="mansion" position="1065.3333333333335,1887.6666666666667" size="100,100">(if: $time &lt; 9)[
 The time is $time o&#39;clock. Dinner is sceduled for 9.
-
+(unless: (track: &#39;mansion-intro&#39;, &#39;isplaying&#39;))[
+    (track: &#39;mansion-middle&#39;, &#39;loop&#39;, true)
+    (track: &#39;mansion-middle&#39;, &#39;play&#39;)
+]
 (if:(history: where its name contains &quot;bartender&quot;)&#39;s length &gt; 1)[You&#39;ve just finished your $drink. You are $drinkcount drinks in.](if:(history: where its name contains &quot;bartender&quot;)&#39;s length is 1)[You&#39;ve just finished your $drink. You are $drinkcount drink in.](if:(history: where its name contains &quot;bartender&quot;)&#39;s length is 0)[(set: $drinkcount to 0)]
-
-
 &lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=16E6i9GJ6_9fNZsog0iMnCNM_0eGL0WUl&quot;&gt;
+
 
 The walls are composed of large, cream coloured bricks beneath velvet curtains. Interrupting these is a marble fireplace and a staircase in one corner of the room.
 
 Young women laugh and spoke softly from their perch atop the arms of a large couch, or leaning on an ornate table, or resting by their forearms on a bar manned by an effeminate man. They all looked sleepy, tired from a long day of being lithe and preyed upon. 
 
 It&#39;s funny to see so many people enjoying themselves here, even passively, in a place you&#39;d long assumed was designed to bore.
-
+---
 [[Get a drink.-&gt;bartender]]
 [[Go upstairs.-&gt;upstairs]]
 [[Socialize.-&gt;socialize-2]]
@@ -338,43 +219,45 @@ It&#39;s funny to see so many people enjoying themselves here, even passively, i
 ]
 
 (if:$time is 9)[
+     (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;mansion-end&#39;, &#39;play&#39;)
 &lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1v6boQGC2yRhrKbJVuC7_nlJvSASXuH7H&quot;&gt;
 
 The time is 9, and like clockwork Lester appears at the base of the stairs.
    (live: 3.5s)[
     (stop:)
 &quot;Hello Everybody!...&quot; 
-[[You all move into the dining room.-&gt;dining room]]
+[[You all move into the dining room.-&gt;act 3]]
 ]
-]</tw-passagedata><tw-passagedata pid="20" name="bartender" tags="bartender" position="161,2426" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1ddmRoPvgZk1axUrw6fSAUMAPQCdO6qu7&quot;&gt;
+]</tw-passagedata><tw-passagedata pid="7" name="bartender" tags="bartender" position="590,2001" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1ddmRoPvgZk1axUrw6fSAUMAPQCdO6qu7&quot;&gt;
 
 &quot;Your drink order, ma&#39;am?&quot;
 (input-box:2bind $drink,&quot;=XX=&quot;,&quot;&quot;)
 (set: $drinkcount to it + 1)
 [[&quot;Thank you!&quot;-&gt;the mansion.]]
-</tw-passagedata><tw-passagedata pid="21" name="upstairs" tags="hallway" position="461,2422" size="100,100">(set: $time to $time + 1)
+</tw-passagedata><tw-passagedata pid="8" name="upstairs" tags="hallway" position="792.6666666666667,2403.6666666666665" size="100,100">(set: $time to $time + 1)
 Of course, in a place like this people are expected to agree to common politeness. Nobody would go snooping in the home of the man in charge of the surviellance machine.
 (if:$redroom is true)[[[Enter the red room.-&gt;redroom]]]
 [[Go to the bathroom.-&gt;bathrooml]]
-[[Go back downstairs-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="22" name="socialize-2" tags="woman" position="1084,2281.3333333333335" size="100,100">(set: $time to $time + 1)
+[[Go back downstairs-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="9" name="socialize-2" tags="woman" position="1084,2281" size="100,100">(set: $time to $time + 1)
 You head towards a group of girls about your age sitting on a linen couch. They make no effort to let you into the conversation, despite your making eye contact twice. 
 
 A woman of forty or so sitting at the bar gives you a sad half-smile.
 
 
 [[Give up-&gt;the mansion.]]
-[[Smile back to the woman-&gt;woman]]</tw-passagedata><tw-passagedata pid="23" name="dining room" tags="dining-room" position="1867,2423" size="100,100">This room was impossibly gold. It looked as if a young child had been asked to design the most expensive room in the world. The only wall that wasn’t a soft, cold yellow featured a painted mural of the Old World. Somewhere in East Europe or Asia, in the summertime. A dining table took up most of the room, finely set with name cards. Sandwiched between a girl my age and a tech bro, I nervously awaited the surprise.
+[[Smile back to the woman-&gt;woman]]</tw-passagedata><tw-passagedata pid="10" name="dining room" tags="dining-room" position="1867,2423" size="100,100">This room was impossibly gold. It looked as if a young child had been asked to design the most expensive room in the world. The only wall that wasn’t a soft, cold yellow featured a painted mural of the Old World. Somewhere in East Europe or Asia, in the summertime. A dining table took up most of the room, finely set with name cards. Sandwiched between a girl my age and a tech bro, I nervously awaited the surprise.
 
 Once everyone was seated, the festivities began. Bowtie donning servers emerged with plates, presenting us with plates of our requested dishes. Small bouts of chatter began, debating what the surprise could possibly be. Lester got up from his chair, and silence began again. 
 
 “Blinkers have solved many problems. But why stop at solving little problems? What about the fulfillment of wants, of desires? The creation of a whole new world. A utopia.” The room’s sphincters collectively tightened. Everyone was nervous. The men nodded as if they had some part in this surprise, and some of the girls made little claps. 
 
 [[&quot;Together, we begin!&quot;-&gt;countdown]]
-</tw-passagedata><tw-passagedata pid="24" name="bathrooml" tags="bathroom" position="245,2624" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1smSIXFU9AV9tf6IsgczOJlenaT-R4Fpu&quot;&gt;
+</tw-passagedata><tw-passagedata pid="11" name="bathrooml" tags="bathroom" position="596.6666666666666,2700.6666666666665" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1smSIXFU9AV9tf6IsgczOJlenaT-R4Fpu&quot;&gt;
 
 The bathroom feels like one that would be in someone&#39;s house, except for the two stalls which take up half of the space. There&#39;s a woman who turned away as you opened the door.
 [[Use the washroom.-&gt;use the washroom]]
-[[Ask if she&#39;s alright.-&gt;ask she&#39;s alright]]</tw-passagedata><tw-passagedata pid="25" name="countdown" tags="dining-room" position="1864,2909.6666666666665" size="100,100">(live: 1s)[
+[[Ask if she&#39;s alright.-&gt;ask she&#39;s alright]]</tw-passagedata><tw-passagedata pid="12" name="countdown" tags="dining-room" position="1864,2909" size="100,100">(live: 1s)[
     (stop:)
 &quot;In three
  ]
@@ -407,25 +290,25 @@ Go.”
 [[Close your eyes and give in.-&gt;hospital]]
  ]
 
-</tw-passagedata><tw-passagedata pid="26" name="go" tags="" position="4626,2370" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="woman" tags="" position="1269,2420" size="100,100">(set: $redroom to true)
+</tw-passagedata><tw-passagedata pid="13" name="woman" tags="" position="1269,2420" size="100,100">(set: $redroom to true)
 She freezes for a moment, there is panic in her eyes. 
 &quot;Jane?&quot; she asks.
 (link:&quot;\&quot;Yes?\&quot;&quot;)[=&quot;Yes?&quot;
 &quot;What are you doing here?&quot;
-[[&quot;I&#39;m sorry, have we met before?&quot;-&gt;have-we-met]]</tw-passagedata><tw-passagedata pid="28" name="have-we-met" tags="" position="1387,2784" size="100,100">&quot;You might not remember me. I worked on the same team as your parents. I&#39;m Julianne.&quot;
+[[&quot;I&#39;m sorry, have we met before?&quot;-&gt;have-we-met]]</tw-passagedata><tw-passagedata pid="14" name="have-we-met" tags="" position="1387,2784" size="100,100">&quot;You might not remember me. I worked on the same team as your parents. I&#39;m Julianne.&quot;
 [[&quot;Oh, yes, of course I remember you!&quot;-&gt;parents]]
-[[&quot;It&#39;s nice to meet you!&quot;-&gt;rr]]</tw-passagedata><tw-passagedata pid="29" name="redroom" tags="" position="473.3333333333333,2650" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1cz94BfCcMwNxzxZs17CHdMyxAgwxU_Ta&quot;&gt;
+[[&quot;It&#39;s nice to meet you!&quot;-&gt;rr]]</tw-passagedata><tw-passagedata pid="15" name="redroom" tags="" position="573.6666666666666,2376.6666666666665" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1cz94BfCcMwNxzxZs17CHdMyxAgwxU_Ta&quot;&gt;
 (set: $time to 9)
 The Red Room is the same as it was when you visited the Lester Estate as a child. The walls were lined perfectly steamed and ironed velvet.
 (if:(history: where its name contains &quot;red room as a kid&quot;)&#39;s length is 0)[[[You thought about what it was like to come here as a kid.-&gt;red room as a kid]]]
 (if:(history: where its name contains &quot;drawer&quot;)&#39;s length is 0)[[[You look towards the the desk and open a drawer.-&gt;drawer]]](if:visits is 3)[You hear Lucas Lester&#39;s voice downstairs, gathering everyone together.
 &quot;Hello!&quot; he calls out.
 
-[[You go downstairs to join the party.-&gt;the mansion.]]
+[[You go downstairs to join the party.-&gt;act 3]]
 
-[[You shut the door behind you and stay in the red room.-&gt;rr-cont]]]</tw-passagedata><tw-passagedata pid="30" name="porns" tags="" position="776,340" size="100,100">After triple checking you&#39;re disconnected from the house’s audio, you play the video. The Blinker judges not, placing you in the company of fat-titted hentai girls. Really gross stuff. 
+[[You shut the door behind you and stay in the red room.-&gt;act 3.2]]]</tw-passagedata><tw-passagedata pid="16" name="porns" tags="" position="776,340" size="100,100">After triple checking you&#39;re disconnected from the house’s audio, you play the video. The Blinker judges not, placing you in the company of fat-titted hentai girls. Really gross stuff. 
 
-[[Close browser-&gt;wake up]]</tw-passagedata><tw-passagedata pid="31" name="hospital" tags="" position="1867,3116" size="100,100">When you open your eyes you are in the hospital waiting room. Some of the other students are playing games up and down the hallways. The entire floor has been made ready for students (click-replace: &quot;students&quot;)[children] to get their Blinker implants.
+[[Close browser-&gt;wake up]]</tw-passagedata><tw-passagedata pid="17" name="hospital" tags="" position="1867,3116" size="100,100">When you open your eyes you are in the hospital waiting room. Some of the other students are playing games up and down the hallways. The entire floor has been made ready for students (click-replace: &quot;students&quot;)[children] to get their Blinker implants.
 Katie is wheeled out of the operating room, to be back with the rest of the class. Katie had volunteered to go first. (click-replace: &quot;first&quot;)[first because you were scared] Miss. Adams agreed. 
 &quot;How was it?&quot; You ask.
 &quot;Easy as pie!&quot; She says, still groggy from the anesthetic. (click-replace: &quot;\&quot;Easy as pie!\&quot; She says, still groggy from the anesthetic.&quot;)[She doesn&#39;t respond.]
@@ -433,12 +316,14 @@ From her temple to her earlobe, a translucent bandage is covering a smooth scar.
 &quot;Jane H?&quot; a nurse calls out from the operating room. Miss. Adams grabs your hand before you can ask Katie anything else and they place you in a chair like Katie&#39;s.
 They tie a tight rubber band around your forearm. The scribbles Katie drew on your arm yesterday during recess are still visible. You focus on them as they push a needle into the now bulging vein on your hand and you begin to drift off.
 (text-style:&quot;fidget&quot;)[Do you remember this Jane?]
-(text-style:&quot;fidget&quot;)[Do you remember when [[we-&gt;we]] met?]</tw-passagedata><tw-passagedata pid="32" name="we" tags="" position="1867,3267.6666666666665" size="100,100">(link:&quot;Feed them!&quot;)[=
+(text-style:&quot;fidget&quot;)[Do you remember when [[we-&gt;we]] met?]</tw-passagedata><tw-passagedata pid="18" name="we" tags="glitch" position="1867,3267" size="100,100">(group: &#39;playing&#39;, &#39;stop&#39;)
+(link:&quot;Feed them!&quot;)[=
+(track: &#39;cannibalism&#39;, &#39;play&#39;)
 {
  (live: 6s)[
     (stop:)
 
-YOU CA(text-style:&quot;shudder&quot;)[N&#39;T] WA(text-style:&quot;shudder&quot;)[K]E (text-style:&quot;shudder&quot;)[UP]
+YOU CAN(text-style:&quot;shudder&quot;)[&#39;]T WA(text-style:&quot;shudder&quot;)[K]E (text-style:&quot;shudder&quot;)[UP]
 [[GIVING-&gt;cann]] IN WILL BE EASIER.
  ]
 }
@@ -462,8 +347,8 @@ GIVE iN
  (live: 3s)[
     (stop:)
 	
-(text-style:&quot;buoy&quot;)[STOP FIGHTING ME.
-LET THEM TAKE YOU.]
+STOP FIGHTING ME.
+LET THEM TAKE YOU.
 &lt;cannibalism&gt;
 &lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1kO99emZclwFCPdGBqNMJmmCcwNdeTpY2&quot;&gt;
  ]
@@ -473,7 +358,7 @@ LET THEM TAKE YOU.]
 {
  (live: 2s)[
     (stop:)
-    (text-style:&quot;rumble&quot;)[(text-style:&quot;mirror&quot;)[STOP FIGHTING ME JANE.]]
+    (text-style:&quot;mirror&quot;)[STOP FIGHTING ME JANE.]
  ]
 }
 {
@@ -486,45 +371,54 @@ LET THEM TAKE YOU.]
 
 
 
-</tw-passagedata><tw-passagedata pid="33" name="THE END" tags="" position="2151.3333333333335,4910" size="100,100">You&#39;ve reached an ending. There are more to find if you play again. 
-[[Wake up again.-&gt;wake up]]</tw-passagedata><tw-passagedata pid="34" name="rr" tags="" position="1232,2887.3333333333335" size="100,100">&quot;It&#39;s nice to meet you as a young lady,&quot; she replies. &quot;Still, so much a little girl.&quot;
+</tw-passagedata><tw-passagedata pid="19" name="THE END" tags="" position="1797.6666666666665,4595" size="100,100">You&#39;ve reached an ending. 
+There are more to find if you play again. 
+[[Wake up again.-&gt;wake up]]</tw-passagedata><tw-passagedata pid="20" name="rr" tags="" position="1232,2887" size="100,100">&quot;It&#39;s nice to meet you as a young lady,&quot; she replies. &quot;Still, so much a little girl.&quot;
 
 You try to parse this statement as a compliment, but Julianne seems upset.
 
 &quot;I feel like I need to escort you to the red room,&quot; she continues. &quot;Too young!&quot;
 
-[[Leave the conversation.-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="35" name="parents" tags="" position="1272,2616" size="100,100">Julianne was nicer than any of her parents&#39; friends, maybe even sweet. She&#39;s aged more than the rest of them, she&#39;s the only woman here with any grey hair.
+[[Leave the conversation.-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="21" name="parents" tags="" position="1373.6666666666667,3017.6666666666665" size="100,100">Julianne was nicer than any of her parents&#39; friends, maybe even sweet. She&#39;s aged more than the rest of them, she&#39;s the only woman here with any grey hair.
 
 She purses her lips tightly before leaning in to speak under her breath. &quot;Jane, you shouldn&#39;t be here.&quot;
 
-[[&quot;Shouldn&#39;t be here?&quot;-&gt;shouldnt be here]]</tw-passagedata><tw-passagedata pid="36" name="shouldnt be here" tags="" position="757,2426" size="100,100">&quot;What does that mean?&quot; you ask.
+[[&quot;Shouldn&#39;t be here?&quot;-&gt;shouldnt be here]]</tw-passagedata><tw-passagedata pid="22" name="shouldnt be here" tags="" position="1282,3129.3333333333335" size="100,100">&quot;What does that mean?&quot; you ask.
 
 &quot;You&#39;re too young,&quot; she says. &quot;Too young for the adult&#39;s table, need to stay in the red room.&quot;
 
 [[Leave the conversation.-&gt;the mansion.]]
-[[&quot;I&#39;m grown up now.&quot;-&gt;grown up now]]</tw-passagedata><tw-passagedata pid="37" name="grown up now" tags="" position="657,2629" size="100,100">&quot;Still, far too young.&quot; She returns to her drink.
+[[&quot;I&#39;m grown up now.&quot;-&gt;grown up now]]</tw-passagedata><tw-passagedata pid="23" name="grown up now" tags="" position="1212,3320.6666666666665" size="100,100">&quot;Still, far too young.&quot; She returns to her drink.
 
-[[You leave her be.-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="38" name="red room as a kid" tags="" position="364,2822" size="100,100">[[rr-&gt;redroom]]</tw-passagedata><tw-passagedata pid="39" name="drawer" tags="" position="955,2674" size="100,100">Inside of the desk is a laptop.
-[[turn it on-&gt;turn-on-laptop]]</tw-passagedata><tw-passagedata pid="40" name="home" tags="" position="5424,2118" size="100,100">You cook yourself a bowl of noodles in the microwave, then take it into your room to eat with a Youtube video on. Somehow, like it knows you&#39;re trying not to think about it, your Blinker recommends videos about itself.
-</tw-passagedata><tw-passagedata pid="41" name="update" tags="" position="333,1591" size="100,100">DRAFT NOTE FROM GEORGIA: in the final version, I want to make this an audio recording, alongside the transcript. Sorry for the massive text block!!
+[[You leave her be.-&gt;the mansion.]]</tw-passagedata><tw-passagedata pid="24" name="red room as a kid" tags="" position="492.3333333333334,2915.3333333333335" size="100,100">As a child, it didn&#39;t matter how many books or activities you brought with you to keep you company. It always felt lonely.
+
+Even trying to watch movies on your Blinker didn&#39;t feel right. You felt unsafe here, and didn&#39;t like having your vision taken away by a film.
+
+So you&#39;d usually wait with your back against the wall, trying to predict how much time was left until they&#39;d come fetch you.
+
+You always felt like you were being watched here. Nowadays, you feel like that all the time.
+
+[[Anyways,-&gt;redroom]]</tw-passagedata><tw-passagedata pid="25" name="drawer" tags="" position="955,2674" size="100,100">Inside of the desk is a laptop.
+[[turn it on-&gt;turn-on-laptop]]</tw-passagedata><tw-passagedata pid="26" name="update" tags="" position="333,1591" size="100,100">DRAFT NOTE FROM GEORGIA: in the final version, I want to make this an audio recording, alongside the transcript. Sorry for the massive text block!!
 
 //
 Tonight, Blink 3 will be dropped, the newest in Black Box Corporation’s Blinker interface.  Although these releases are under lock and key and nearly impossible to learn about early, we do have our top three most likely upgrades and new features in V3.
 
-One of the safest bets for new features is have automatic human identification. Just last year, Black Box acquired face ID giant Lambda. Teams have since merged, with a massive firing of Lambda engineers. We can only assume Blinker has chosen to make good use of the intellectual property. 
+One of the safest bets for new features is automatic human identification. Just last year, Black Box acquired face ID giant Lambda. Teams have since merged, with a massive firing of Lambda engineers. We can only assume Blinker has chosen to make good use of the intellectual property. 
 
 Next we’re predicting enhanced security features. Since the infamous Brown murders, Black Box has doubled down on security on all product updates. We can expect Blink 3 to include fully incorporated versions of the patch updates released in the past year.
 
 Finally, here’s something diehard fans of the company have been speculating. Blink 3 may include Masterkey compatibility. Masterkey is a tool developed for Views, an alternative to Blinkers developed for imprisoned criminals. Masterkey allowed for government officials to monitor sensory input like sight through the user’s brain, provided they are in a space outside of their private cell. The shareholders &lt;name of parents&gt; have recently relinquished their long standing public disapproval of Masterkey functionality in civilian Blinkers.
 //
 
-The video shuts off and you stop the next one from playing. It&#39;s probably time to start [[getting ready-&gt;premansion]].</tw-passagedata><tw-passagedata pid="42" name="inventors" tags="" position="483,1589" size="100,100">These squirrels are really something. 
+The video shuts off and you stop the next one from playing. It&#39;s probably time to start [[getting ready-&gt;premansion]].</tw-passagedata><tw-passagedata pid="27" name="inventors" tags="" position="483,1589" size="100,100">These squirrels are really something. 
 
-The video shuts off and you stop the next one from playing. It&#39;s probably time to start [[getting ready-&gt;premansion]].</tw-passagedata><tw-passagedata pid="43" name="premansion" tags="" position="587.3333333333334,1689.6666666666667" size="100,100">{
+The video shuts off and you stop the next one from playing. It&#39;s probably time to start [[getting ready-&gt;premansion]].</tw-passagedata><tw-passagedata pid="28" name="premansion" tags="" position="682,1712.3333333333333" size="100,100">{
  (live: 1s)[
     (stop:)
-    You pull your second-nicest dress out of the closet and steam it in the bathroom while ou shower.
+    You pull your second-nicest dress out of the closet and steam it in the bathroom while you shower.
 
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1NT1X51itjnQajWtAKDv3LSPRHhfNk_5L&quot;&gt;
  ]
 }
 
@@ -546,6 +440,7 @@ The video shuts off and you stop the next one from playing. It&#39;s probably ti
  (live: 10s)[
     (stop:)
    The shuttle door auto-opens when you reach Lester&#39;s estate. It&#39;s especially well-manicured today, with lights illuminating the front garden. It was a beautiful sight, except for the decapitated head of a rabbit left under an oak tree. The gardener must have missed it.
+   &lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1Ki-Pvm4l22LCnklMPFcQHw448WkyxjLb&quot;&gt;
  ]
 }
 
@@ -554,14 +449,16 @@ The video shuts off and you stop the next one from playing. It&#39;s probably ti
     (stop:)
 [[A bowlegged man in a suit holds the door open for you.-&gt;act 2]]
  ]
-}</tw-passagedata><tw-passagedata pid="44" name="rr-cont" tags="" position="960.3333333333334,2975" size="100,100">The noises downstairs are muffled, and you try to find a position you can keep so that if someone walks into this room, they won&#39;t think you&#39;re hiding. 
+}</tw-passagedata><tw-passagedata pid="29" name="rr-cont" tags="" position="816.6666666666667,3100.0000000000005" size="100,100"> (group: &#39;playing&#39;, &#39;stop&#39;)
+ (track: &#39;mansion-end&#39;, &#39;play&#39;)
+The noises downstairs are muffled, and you try to find a position you can keep so that if someone walks into this room, they won&#39;t think you&#39;re hiding. 
 
 You settle on with your back against the wall, near the window, so if anyone asks you what you&#39;re doing you can pretend you were about to try and smoke. You place a half-open pack of cigarettes and a mini-lighter on the desk.
 
 Breathing in and out in counts of fours, with your fingers against your wrist pulse-point, you wait until it sounds relaxed to do anything else.
 
 (if:(history: where its name contains &quot;stop her&quot;)&#39;s length &gt;= 1)[[[Think about Katie.-&gt;kaite-yes]]]
-[[Think about the night your parents left.-&gt;paren]]</tw-passagedata><tw-passagedata pid="45" name="turn-on-laptop" tags="" position="718,2994" size="100,100">Last login: Thu Jun 30 20:03:02 on ttys000
+[[Think about the night your parents left.-&gt;paren]]</tw-passagedata><tw-passagedata pid="30" name="turn-on-laptop" tags="" position="718,2994" size="100,100">Last login: Thu Jun 30 20:03:02 on ttys000
 owner@Owners-J.H12~ % vi jadis.bnk                                         JADIS WELCOMES YOU
 (link-reveal:&quot;&gt;&gt; hello jadis&quot;)[=
 Hello
@@ -685,21 +582,29 @@ error_code.cpp:8:89:   instantiated from here
 	]]
 
  
-						</tw-passagedata><tw-passagedata pid="46" name="title card" tags="" position="194.66666666666666,96" size="100,100">(set: $ending to false)
+						</tw-passagedata><tw-passagedata pid="31" name="title card" tags="" position="384.6666666666667,69.33333333333333" size="100,100">(set: $ending to false)
 (text-style:&quot;outline&quot;)[&#39;&#39;BLINKERS&#39;&#39;]
 A narrative horror game.
 
 Note: currently I have it enabled that you can undo decisions. This will be removed in the final version, but for now it&#39;s just a lot easier to debug with this function. Just ignore it if you don&#39;t want to &#39;cheat&#39;.
-
+---
 [[Wake up.-&gt;wake up]]
-</tw-passagedata><tw-passagedata pid="47" name="go-to-door" tags="" position="533,650" size="100,100">The onion is almost out of your eyes by the time you open the front door. 
+[[Content warnings &amp; sensory descriptions.-&gt;content warnings]]
+[[Credits.-&gt;credits]]
+{
+(track: &#39;wakeup&#39;, &#39;loop&#39;, true)
+(track: &#39;wakeup&#39;, &#39;playwhenpossible&#39;)
+}</tw-passagedata><tw-passagedata pid="32" name="go-to-door" tags="" position="533,650" size="100,100">The onion is almost out of your eyes by the time you open the front door. 
 
 Standing in front of you is Lucas Lester. Your face latches onto a soft smile instinctively, before you have time to even be conscious of your panic. 
 
-You count three breaths in and out before he [[says anything at all-&gt;fd]].
-</tw-passagedata><tw-passagedata pid="48" name="fromt-door-cam" tags="" position="655,673" size="100,100">//picture here of him
+You count three breaths in and out before he [[says anything at all-&gt;fd]].</tw-passagedata><tw-passagedata pid="33" name="fromt-door-cam" tags="" position="655,673" size="100,100">
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1RsMaFt7DEA6pt2dFtNT1kEbYcTPJ1ye8&quot;&gt;
+
 Almost before real panic can set in, you begin counting your breaths.
-{
+(track: &#39;dreamsong&#39;, &#39;loop&#39;, true)
+(track: &#39;dreamsong&#39;, &#39;playwhenpossible&#39;)
+(if:visits is 0)[{
  (live: 1s)[
     (stop:)
     In...
@@ -726,17 +631,23 @@ Almost before real panic can set in, you begin counting your breaths.
     You move towards the front door. He [[already knows-&gt;already-knows]] you&#39;re home, it&#39;s not worth pretending you&#39;re not.
 	You open [[the door-&gt;fd]].
  ]
-}
-</tw-passagedata><tw-passagedata pid="49" name="already-knows" tags="" position="931.6666666666667,886.3333333333334" size="100,100">Maybe that&#39;s not an obvious assumption. Nobody else seems to share the suspicion that Lester actually sifts through any of the Blinker data. 
+}]
+(if:visits is not 0)[In... Out... In... Out...
+    You move towards the front door. He [[already knows-&gt;already-knows]] you&#39;re home, it&#39;s not worth pretending you&#39;re not.
+	You open [[the door-&gt;fd]].
+ ]
+</tw-passagedata><tw-passagedata pid="34" name="already-knows" tags="" position="931,886" size="100,100">Maybe that&#39;s not an obvious assumption. Nobody else seems to share the suspicion that Lester actually sifts through any of the Blinker data. 
 
 Maybe that&#39;s just what //you// would do with that kind of power. Isn&#39;t it silly to assume someone with all that power would need to sift through your bioinformatics to be in control of you? How much good does that information do for him?
 
-Either way, he is at your [[front door-&gt;fromt-door-cam]].</tw-passagedata><tw-passagedata pid="50" name="fd" tags="" position="490,822" size="100,100">&quot;Good afternoon, I&#39;m sorry for dropping by unannounced.&quot;
+Either way, he is at your [[front door-&gt;fromt-door-cam]].</tw-passagedata><tw-passagedata pid="35" name="fd" tags="" position="490,822" size="100,100">&quot;Good afternoon, I&#39;m sorry for dropping by unannounced.&quot;
+(track: &#39;dreamsong&#39;, &#39;loop&#39;, true)
+(track: &#39;dreamsong&#39;, &#39;playwhenpossible&#39;)
 (link-reveal:&quot;\&quot;Oh, it&#39;s no problem.\&quot;&quot;)[=
 You wince. You sound just like mother, the exact kind of welcoming you&#39;d be angry at her for. 
 &quot;Could I come in for a moment? I have something to invite you to.&quot;
 [[&quot;Yes, come in.&quot;-&gt;come in]]
-[[&quot;I&#39;m sorry, it&#39;s not a good time right now.&quot;-&gt;rightno]]</tw-passagedata><tw-passagedata pid="51" name="come in" tags="" position="448,960" size="100,100">You lead him down the hallway, through the kitchen, and into the living room. He takes a seat in (link:&quot;the orange&quot;)[your father&#39;s] armchair and you sit kitty - corner on the couch.
+[[&quot;I&#39;m sorry, it&#39;s not a good time right now.&quot;-&gt;rightno]]</tw-passagedata><tw-passagedata pid="36" name="come in" tags="" position="448,960" size="100,100">You lead him down the hallway, through the kitchen, and into the living room. He takes a seat in (link:&quot;the orange&quot;)[your father&#39;s] armchair and you sit kitty - corner on the couch.
 
 He has a purple envelope in his hand, the thing he must&#39;ve come here to deliver. 
 
@@ -750,7 +661,7 @@ He&#39;s tapping the envelope against his leg. You imagine grabbing it out of hi
 
 There&#39;s a hanging //because they can&#39;t// in the air. 
 
-[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="52" name="rightno" tags="" position="598,960" size="100,100">You try to make it sound casual and breezy but you miss the mark. Either Lester affords you the courtesy of pretending he doesn&#39;t notice, or he pretends you&#39;re being honest for his own purposes.
+[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="37" name="rightno" tags="" position="598,960" size="100,100">You try to make it sound casual and breezy but you miss the mark. Either Lester affords you the courtesy of pretending he doesn&#39;t notice, or he pretends you&#39;re being honest for his own purposes.
 
 &quot;No worries, just wanted to drop this off.&quot; He pulls out a purple envelope from within his coat. &quot;It&#39;s the release dinner for Blink version three.&quot;
 
@@ -758,8 +669,8 @@ You take the envelope from him.
 
 &quot;You should be there. It&#39;s [[what your parents would have wanted-&gt;parents would have wanted]].&quot;
 
-[[&quot;I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="53" name="ato" tags="" position="126,975" size="100,100">It&#39;s true that you&#39;ve auto-opted out of every Black Box event you&#39;ve been invited to. You did, however, hear about this one from a friend-of-a-friend. //The biggest launch since we were kids.// The last update your parents had any of their work in before they (link:&quot;killed themselves&quot;)[left the company].
-[[Anyways,-&gt;come in2]]</tw-passagedata><tw-passagedata pid="54" name="parents would have wanted" tags="" position="729.6666666666666,1044" size="100,100">That&#39;s true. Your parents probably would have wanted that.
+[[&quot;I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="38" name="ato" tags="" position="126,975" size="100,100">It&#39;s true that you&#39;ve auto-opted out of every Black Box event you&#39;ve been invited to. You did, however, hear about this one from a friend-of-a-friend. //The biggest launch since we were kids.// The last update your parents had any of their work in before they (link:&quot;killed themselves&quot;)[left the company].
+[[Anyways,-&gt;come in2]]</tw-passagedata><tw-passagedata pid="39" name="parents would have wanted" tags="" position="729,1044" size="100,100">That&#39;s true. Your parents probably would have wanted that.
 
 They always dragged you to Black Box dinner events as a kid. Dinner was painful enough, being the only kid and the only non-employee at the table.
 
@@ -767,13 +678,13 @@ After dinner, when the adults needed to talk was the worst. You&#39;d have to go
 
 So it&#39;s true that your parents would have wanted you to be there. It&#39;s also not a great motivator.
 
-[[Anyways,-&gt;rightno]]</tw-passagedata><tw-passagedata pid="55" name="be there" tags="" position="501,1077" size="100,100">He turns and leaves. You go back into the kitchen and chop the rest of your onions, letting your eyes get saturated with the irritant.
+[[Anyways,-&gt;rightno]]</tw-passagedata><tw-passagedata pid="40" name="be there" tags="" position="501,1077" size="100,100">He turns and leaves. You go back into the kitchen and chop the rest of your onions, letting your eyes get saturated with the irritant.
 (set: $high to false)
 Onions, crushed tomatoes, and garlic. You focus on what you have control over, and salt your boiling water. When everything is cleaned except for the pan of sauce and pot of cooking pasta, you have five minutes to spend until you can eat.
 
 [[Spend the five minutes alone with your thoughts.-&gt;alone-w-thoughts]]
 
-[[Smoke.-&gt;smoke]]</tw-passagedata><tw-passagedata pid="56" name="alone-w-thoughts" tags="" position="282,1230" size="100,100">{
+[[Smoke.-&gt;smoke]]</tw-passagedata><tw-passagedata pid="41" name="alone-w-thoughts" tags="" position="260.3333333333333,1250" size="100,100">{
  (live: 1s)[
     (stop:)
     You can&#39;t deny that the dinner is now filling you with a bit of a thrill. Past the initial horror of Lester showing up at your doorstep, it&#39;s obvious he just wants you there as good will for the company; to show you don&#39;t blame Black Box for your parent&#39;s suicides.
@@ -799,11 +710,14 @@ Onions, crushed tomatoes, and garlic. You focus on what you have control over, a
     (stop:)
     You get lost in a vivid fantasy of shooting Lester in the side of the head, and then remember you&#39;ve got [[pasta on the stove-&gt;pastatime-sober]].
  ]
-}</tw-passagedata><tw-passagedata pid="57" name="smoke" tags="" position="484,1227" size="100,100">You clamber onto the porch. You&#39;ve been saving this for a tough day, and quick mathematics says you&#39;ll be sober by the time the party starts anyways.
+}</tw-passagedata><tw-passagedata pid="42" name="smoke" tags="" position="484,1227" size="100,100">You clamber onto the porch. You&#39;ve been saving this for a tough day, and quick mathematics says you&#39;ll be sober by the time the party starts anyways.
+
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1maSrN8ZwjMqxZqQ7PqJ0jjMG0BYF5Sbt&quot;&gt;
+
 (set: $high to true)
 It hurts. You can feel butane clinging onto the back of your throat. There&#39;s some pleghm you cough up, maybe something you&#39;ve had back there for a while, and it&#39;s not until you&#39;ve dealt with the phlegm issue that you realize you feel much happier.
 
-[[It&#39;s time to eat pasta.-&gt;pastatime]]</tw-passagedata><tw-passagedata pid="58" name="come in2" tags="" position="126,1125" size="100,100">You lead him down the hallway, through the kitchen, and into the living room. He takes a seat in your father&#39;s armchair and you sit kitty - corner on the couch.
+[[It&#39;s time to eat pasta.-&gt;pastatime]]</tw-passagedata><tw-passagedata pid="43" name="come in2" tags="" position="126,1125" size="100,100">You lead him down the hallway, through the kitchen, and into the living room. He takes a seat in your father&#39;s armchair and you sit kitty - corner on the couch.
 
 He has a purple envelope in his hand, the thing he must&#39;ve come here to deliver. 
 
@@ -817,21 +731,23 @@ He&#39;s tapping the envelope against his leg. You imagine grabbing it out of hi
 
 There&#39;s a hanging //because they can&#39;t// in the air. 
 
-[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="59" name="pastatime" tags="" position="499,1431" size="100,100">The pasta is godlike. You pull up YouTube on the television and curl up on the couch.
+[[&quot;Yes, I&#39;ll be there.&quot;-&gt;be there]]</tw-passagedata><tw-passagedata pid="44" name="pastatime" tags="" position="499,1431" size="100,100">The pasta is godlike. You pull up YouTube on the television and curl up on the couch.
 
 [[You watch //New Blinker Update Predictions//-&gt;update]]
-[[You watch //Squirrel Parkour 3//-&gt;inventors]]</tw-passagedata><tw-passagedata pid="60" name="pastatime-sober" tags="" position="288,1433" size="100,100">You take a sample noodle. It&#39;s a little overcooked, but it&#39;ll do. You bring your pasta with you onto the couch.
-
-You pull up YouTube on the television and curl up on the couch.
+[[You watch //Squirrel Parkour 3//-&gt;inventors]]</tw-passagedata><tw-passagedata pid="45" name="pastatime-sober" tags="" position="288,1433" size="100,100">You take a sample noodle. It&#39;s a little overcooked, but it&#39;ll do. You bring your pasta with you onto the couch.
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1YwF2iMdmlQSi-3fvBKKHlkIBpUM7l0yq”&gt;
+You pull up YouTube on the television.
 
 [[You watch //New Blinker Update Predictions//-&gt;update]]
-[[You watch //Squirrel Parkour 3//-&gt;inventors]]</tw-passagedata><tw-passagedata pid="61" name="act 2" tags="" position="596,1899" size="100,100">ACT TWO
+[[You watch //Squirrel Parkour 3//-&gt;inventors]]</tw-passagedata><tw-passagedata pid="46" name="act 2" tags="" position="1041,1642.3333333333333" size="100,100">ACT TWO
+(track: &#39;dreamsong&#39;, &#39;stop&#39;)
+(track: &#39;mansion-intro&#39;, &#39;playwhenpossible&#39;)
 (set: $time to 6)
 [[the mansion-&gt;the mansion.]]
-</tw-passagedata><tw-passagedata pid="62" name="ACT ONE" tags="" position="250,451.6666666666667" size="100,100">Act 1
+</tw-passagedata><tw-passagedata pid="47" name="ACT ONE" tags="" position="278,505" size="100,100">Act 1
 The Invitation
 
-[[You&#39;re making yourself lunch.-&gt;get up]]</tw-passagedata><tw-passagedata pid="63" name="use the washroom" tags="" position="65,2799" size="100,100">You use the toilet, and wash up. The girl isn&#39;t there when you leave the stall. You [[go back downstairs-&gt;the mansion.]]. </tw-passagedata><tw-passagedata pid="64" name="ask she&#39;s alright" tags="" position="244,2785" size="100,100">&quot;Hey, can I get you anything?&quot;
+[[You&#39;re making yourself lunch.-&gt;get up]]</tw-passagedata><tw-passagedata pid="48" name="use the washroom" tags="" position="0,2620.6666666666665" size="100,100">You use the toilet, and wash up. The girl isn&#39;t there when you leave the stall. You [[go back downstairs-&gt;the mansion.]]. </tw-passagedata><tw-passagedata pid="49" name="ask she&#39;s alright" tags="" position="430.6666666666667,2683.3333333333335" size="100,100">&quot;Hey, can I get you anything?&quot;
 {
  (live: 1s)[
     (stop:)
@@ -845,47 +761,41 @@ The Invitation
     &quot;Hey, no, I&#39;m fine,&quot; she slurs, pushing past you and avoiding your eyes.
  ]
 }
-{
- (live: 3s)[
-    (stop:)
-    &quot;Hey, no, I&#39;m fine,&quot; she slurs, leaning against you to push past you.
- ]
-}
 [[Let her pass by.-&gt;watch go]]
-[[Stop her.-&gt;stop her]]</tw-passagedata><tw-passagedata pid="65" name="watch go" tags="" position="162,2955" size="100,100">The bathroom door slams shut behind her. You use the toilet, wash up, and [[go back downstairs-&gt;the mansion.]]. You&#39;re not sure where the girl went. </tw-passagedata><tw-passagedata pid="66" name="stop her" tags="" position="300,2952" size="100,100">(link-reveal:&quot;\&quot;Katie? Is that you?\&quot;&quot;)[=
+[[Stop her.-&gt;stop her]]</tw-passagedata><tw-passagedata pid="50" name="watch go" tags="" position="162,2955" size="100,100">The bathroom door slams shut behind her. You use the toilet, wash up, and [[go back downstairs-&gt;the mansion.]]. You&#39;re not sure where the girl went. </tw-passagedata><tw-passagedata pid="51" name="stop her" tags="" position="300,2952" size="100,100">(link-reveal:&quot;\&quot;Katie? Is that you?\&quot;&quot;)[=
 &quot;Jane?&quot; 
 Katie is the rotting thing underneath every shining post she&#39;s made on the internet since you last saw her, which was sometime shortly after highschool for a picnic and baseball game. 
 (link-reveal:&quot;\&quot;Yeah, how are you?\&quot;&quot;)[=
 &quot;I&#39;m fine,&quot; she says. &quot;What are you doing here? I&#39;ve never seen you at one of these before.&quot;
 [[&quot;Do you usually come to these dinner parties?&quot;-&gt;usually?]]
-[[&quot;My parents used to work for Black Box, so...&quot;-&gt;used to]]</tw-passagedata><tw-passagedata pid="67" name="usually?" tags="" position="98,3099" size="100,100">&quot;Oh yeah, totally. I never miss one.&quot;
+[[&quot;My parents used to work for Black Box, so...&quot;-&gt;used to]]</tw-passagedata><tw-passagedata pid="52" name="usually?" tags="" position="98,3099" size="100,100">&quot;Oh yeah, totally. I never miss one.&quot;
 
 This doesn&#39;t make a lot of sense to you. Katie&#39;s parents were both schoolteachers, and she wanted to be a dentist in high school.
 
-</tw-passagedata><tw-passagedata pid="68" name="used to" tags="" position="499,3100" size="100,100">&quot;Oh, right, I remember. How are they?&quot;
+</tw-passagedata><tw-passagedata pid="53" name="used to" tags="" position="499,3100" size="100,100">&quot;Oh, right, I remember. How are they?&quot;
 [[&quot;They passed away a couple years ago.&quot;-&gt;passed]]
-[[&quot;Oh, fine.&quot;-&gt;fine]]</tw-passagedata><tw-passagedata pid="69" name="passed" tags="" position="407,3294" size="100,100">&quot;Oh my gosh, I am just so sorry!&quot; She covers her mouth with her hand.
+[[&quot;Oh, fine.&quot;-&gt;fine]]</tw-passagedata><tw-passagedata pid="54" name="passed" tags="" position="407,3294" size="100,100">&quot;Oh my gosh, I am just so sorry!&quot; She covers her mouth with her hand.
 
 (link-reveal:&quot;\&quot;It&#39;s okay, I get it all the time. They were mostly shut-ins when they were alive, so most people don&#39;t notice.\&quot;&quot;)[=
 
 &quot;Well... I am so sorry.&quot; She steadies herself against the counter.
 
 [[Ask her why she was crying.-&gt;why crying]]
-[[Ask how she knows people at Black Box.-&gt;black box]]</tw-passagedata><tw-passagedata pid="70" name="fine" tags="" position="600,3297" size="100,100">No need to bother her with the gory details.
+[[Ask how she knows people at Black Box.-&gt;black box]]</tw-passagedata><tw-passagedata pid="55" name="fine" tags="" position="600,3297" size="100,100">No need to bother her with the gory details.
 
 [[Ask her why she was crying.-&gt;why crying]]
-[[Ask how she knows people at Black Box.-&gt;black box]]</tw-passagedata><tw-passagedata pid="71" name="why crying" tags="" position="307.3333333333333,3500.3333333333335" size="100,100">&quot;Oh, you know how it is. It&#39;s silly boy problems. I&#39;m an easy crier and I&#39;m drunk, that&#39;s all.&quot;
+[[Ask how she knows people at Black Box.-&gt;black box]]</tw-passagedata><tw-passagedata pid="56" name="why crying" tags="" position="307,3500" size="100,100">&quot;Oh, you know how it is. It&#39;s silly boy problems. I&#39;m an easy crier and I&#39;m drunk, that&#39;s all.&quot;
 
 [[&quot;Do you need help getting downstairs?&quot;-&gt;dw]]
-[[&quot;Okay. Let me know if you need anything.&quot;-&gt;dw2]]</tw-passagedata><tw-passagedata pid="72" name="black box" tags="" position="711.6666666666666,3500.333333333333" size="100,100">&quot;Well, I started doing event serving after high school, and I really took to it. I ended up working for a few Black Box corporate events, and I guess I was just dilligent about the networking thing, because now I get an invite every month.&quot;
+[[&quot;Okay. Let me know if you need anything.&quot;-&gt;dw2]]</tw-passagedata><tw-passagedata pid="57" name="black box" tags="" position="711,3500" size="100,100">&quot;Well, I started doing event serving after high school, and I really took to it. I ended up working for a few Black Box corporate events, and I guess I was just dilligent about the networking thing, because now I get an invite every month.&quot;
 
 [[&quot;That&#39;s nice.&quot;-&gt;thatsnice]]
 [[&quot;Katie, what could you have been networking with them about?&quot;-&gt;netw]]
-</tw-passagedata><tw-passagedata pid="73" name="dw" tags="" position="200.66666666666666,3702" size="100,100">&quot;I&#39;ve got it, no worries. I&#39;ve gone down those stairs in much worse condition.&quot;
+</tw-passagedata><tw-passagedata pid="58" name="dw" tags="" position="200,3702" size="100,100">&quot;I&#39;ve got it, no worries. I&#39;ve gone down those stairs in much worse condition.&quot;
 She spins herself through the threshold, and the door slams shut behind her. 
-You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="74" name="dw2" tags="" position="399,3702" size="100,100">&quot;I will. Thanks Jane.&quot;
+You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="59" name="dw2" tags="" position="399,3702" size="100,100">&quot;I will. Thanks Jane.&quot;
 She spins herself through the threshold, and the door slams shut behind her. 
-You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="75" name="thatsnice" tags="" position="293.99999999999994,4012" size="100,100">&quot;Yeah, I&#39;m really greatful for this. It&#39;s opened a lot of doors for me. I&#39;m not supposed to talk about this actually, but,&quot; she lowers her voice and steps in closer to me. &quot;I&#39;m getting hired on to be part of the hospitality staff at this manor! It&#39;ll be officially announced next week.&quot;
+You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="60" name="thatsnice" tags="" position="293,4012" size="100,100">&quot;Yeah, I&#39;m really greatful for this. It&#39;s opened a lot of doors for me. I&#39;m not supposed to talk about this actually, but,&quot; she lowers her voice and steps in closer to me. &quot;I&#39;m getting hired on to be part of the hospitality staff at this manor! It&#39;ll be officially announced next week.&quot;
 
 &quot;Wow, that&#39;s great to hear.&quot;
 
@@ -893,7 +803,7 @@ You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedat
 
 She spins herself through the threshold, and the door slams shut behind her. 
 
-You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="76" name="netw" tags="" position="595.6666666666667,3990.3333333333335" size="100,100">&quot;What the fuck is that supposed to mean?&quot; she asks.
+You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="61" name="netw" tags="" position="595,3990" size="100,100">&quot;What the fuck is that supposed to mean?&quot; she asks.
 
 &quot;I didn&#39;t mean it like a bad thing at all, it&#39;s just that these people aren&#39;t normal.&quot;
 
@@ -903,8 +813,8 @@ You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedat
 
 She spins herself through the threshold, and the door slams shut behind her. 
 
-You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="77" name="cann" tags="" position="1867,3417.6666666666665" size="100,100">Numb, dark, and dizzy.
-
+You use the bathroom and go back [[downstairs-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="62" name="cann" tags="" position="1867,3418.6666666666665" size="100,100">(group: &#39;playing&#39;, &#39;stop&#39;)
+Numb, dark, and dizzy.
 {
  (live: 2s)[
     (stop:)
@@ -945,7 +855,7 @@ You are on the precipice of death, and there&#39;s only one choice left to make:
 [[Die with your eyes clsoed.-&gt;eyes-closed]]
  ]
 }
-</tw-passagedata><tw-passagedata pid="78" name="eyes-open" tags="" position="1796.9999999999998,3596.0000000000005" size="100,100">Squeaky raw pink everywhere. The diners snake about each other sinusodally, covered in nearly-black blood.
+</tw-passagedata><tw-passagedata pid="63" name="eyes-open" tags="" position="2336,3507.6666666666665" size="100,100">Squeaky raw pink everywhere. The diners snake about each other sinusodally, covered in nearly-black blood.
 
 Your left leg is not where it should be, you gather the energy to feel the wound in it&#39;s place, but even your fingertips are numb.
 
@@ -955,13 +865,21 @@ And at the end of the table, Lucas Lester is watching for your reaction, like he
 
 There is blood in your mouth too, and you pray it is your own. 
 
-[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="79" name="eyes-closed" tags="" position="1972,3606" size="100,100">You will not give him the satisfaction of looking at your eyes while you die, your panic or your peace or anything else that comes with it.
+[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="64" name="eyes-closed" tags="" position="2512,3517.6666666666665" size="100,100">You will not give him the satisfaction of looking at your eyes while you die, your panic or your peace or anything else that comes with it.
 
 &lt;write the things she pictures here, should be referenced earlier.&gt;
 
-[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="80" name="kaite-yes" tags="" position="880.3333333333334,3376.6666666666665" size="100,100">LMAO fill this in w a charecter thing about katie. 
+[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="65" name="kaite-yes" tags="" position="880,3376" size="100,100">Katie was the first person in your class to get her Blinker in.
 
-From outside the open window, you can hear[[ people cheering-&gt;cheerin]].</tw-passagedata><tw-passagedata pid="81" name="paren" tags="" position="1035.3333333333335,3125" size="100,100">It was a few years ago, and you had gone to a real party for the first time. You had come home earlier than anyone thought you would, the friend who you knew there had bailed and the thumping of music and people acting overly drunk made you feel shitty.
+It was supposed to be you. Your name appeared first on the list, probably because they assumed you&#39;d be brave enough to get it put in first because your parents were the architects of the system. You had cried to Katie all morning about this in the girl&#39;s washroom, before she vowed she&#39;d take your place.
+
+And she did. 
+
+You and Katie were inseperable for years after, until high school when you began to slowly drift apart. Still, there was something different about her now unexplained by the years, something that had been worn down into nothing.
+
+From outside the open window, you can hear[[ people cheering-&gt;cheerin]].</tw-passagedata><tw-passagedata pid="66" name="paren" tags="" position="1035,3125" size="100,100">It was a few years ago, and you had gone to a real party for the first time. You had come home earlier than anyone thought you would, the friend who you knew there had bailed and the thumping of music and people acting overly drunk made you feel shitty.
+
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1sUI3L8DunqDH_KL7x6r4pxQjq_VsK8AH&quot;&gt;
 
 &quot;Back home already?&quot; your dad asked, standing in the way of the doorway.
 
@@ -981,7 +899,7 @@ They were impossible to read, always, offloading whatever honesty there could ha
 
 &quot;Okay. I love you guys, have a good night.&quot;
 
-Maybe you should have known something was wrong from when they hugged you, but it wasn&#39;t until you were [[woken up-&gt;woken]] in the night that you were certain something was wrong.</tw-passagedata><tw-passagedata pid="82" name="woken" tags="" position="1060.3333333333333,3279.333333333333" size="100,100">You could hear them clear as day from your room. Maybe they wanted that, subconsciously.
+Maybe you should have known something was wrong from when they hugged you, but it wasn&#39;t until you were [[woken up-&gt;woken]] in the night that you were certain something was wrong.</tw-passagedata><tw-passagedata pid="67" name="woken" tags="" position="1058.3333333333333,3279" size="100,100">You could hear them clear as day from your room. Maybe they wanted that, subconsciously.
 
 =|=
  (live: 3s)[
@@ -1047,12 +965,15 @@ From outside the open window, you can hear[[ people cheering-&gt;cheerin]].
  ]
 
 
-</tw-passagedata><tw-passagedata pid="83" name="cheerin" tags="" position="1148.6666666666665,3471" size="100,100">The girls at the party are all stumbling out. Some are crawling, some are managing to walk. Behind them, the rest of the party is watching them from the wall, cheering them on and hooting. It&#39;s mostly men against the wall, but you can see a couple of female Black Box veterans as well.
+</tw-passagedata><tw-passagedata pid="68" name="cheerin" tags="" position="1138,3456" size="100,100">The girls at the party are all stumbling out. Some are crawling, some are managing to walk. Behind them, the rest of the party is watching them from the wall, cheering them on and hooting. It&#39;s mostly men against the wall, but you can see a couple of female Black Box veterans as well.
 
 There is something evil happening here.
 
+(group: &#39;playing&#39;, &#39;stop&#39;)
+
+
 [[You peak out at the garden from behind the curtain.-&gt;watch]]
-</tw-passagedata><tw-passagedata pid="84" name="watch" tags="" position="1148.6666666666665,3621" size="100,100">Lester comes out next, pushing a massive black cart. You can&#39;t tell what&#39;s on it, until they start pulling things out. 
+</tw-passagedata><tw-passagedata pid="69" name="watch" tags="" position="1043,3634.3333333333335" size="100,100">Lester comes out next, pushing a massive black cart. You can&#39;t tell what&#39;s on it, until they start pulling things out. 
 
 //Guns.// Everyone along the wall passes around handguns, except for some of the women, who are making fun of their husbands and coworkers, laughing fully. 
 
@@ -1063,7 +984,10 @@ There is something evil happening here.
 Lester fools around with a laptop he has leaning on the cart for a moment, and then the girls all fall to the floor. They arch their backs, crawl, play with each other, snuggle themselves into the soft grass.
 
 [[Run out of the red room.-&gt;run]]
-</tw-passagedata><tw-passagedata pid="85" name="run" tags="" position="1000.3333333333333,3897.666666666667" size="100,100">You don&#39;t want to see it. You can&#39;t. You run down the staircase, out the front door, and down the long driveway to the Lester estate. 
+[[Stay in the red room.-&gt;stay]]
+</tw-passagedata><tw-passagedata pid="70" name="run" tags="" position="1000,3897" size="100,100">(group: &#39;playing&#39;, &#39;stop&#39;)
+(track: &#39;running&#39;, &#39;play&#39;)
+You don&#39;t want to see it. You can&#39;t. You run down the staircase, out the front door, and down the long driveway to the Lester estate. 
 
 By the time you&#39;ve made it down the driveway, you can barely hear the noises, which you are choosing to picture as feral cats getting shot. 
 
@@ -1072,9 +996,9 @@ You don&#39;t dare call a shuttle, find directions, or listen to any of the buzz
 By the time you get home it&#39;s still only eleven. You lock everything you can and sit on the kitchen floor.
 
 [[Call the police.-&gt;poli]]
-</tw-passagedata><tw-passagedata pid="86" name="stay" tags="" position="1501.9999999999998,3901" size="100,100">see what happens, describe it, and then describe someone pointing you out/seeing you, run
-[[go-&gt;go2]]
-</tw-passagedata><tw-passagedata pid="87" name="poli" tags="" position="801.9999999999999,4197.666666666667" size="100,100">&quot;911, what is your emergency?&quot;
+[[Act as if you have seen nothing.-&gt;pasta2]]</tw-passagedata><tw-passagedata pid="71" name="stay" tags="" position="1389.6666666666667,3477.6666666666665" size="100,100">see what happens, describe it, and then describe someone pointing you out/seeing you, run
+[[go-&gt;go]]
+</tw-passagedata><tw-passagedata pid="72" name="poli" tags="" position="862.6666666666666,4113.666666666667" size="100,100">&quot;911, what is your emergency?&quot;
 
 (link-reveal:&quot;\&quot;I need to report a crime.\&quot;&quot;)[=
 
@@ -1105,10 +1029,55 @@ You go into your room and turn it inside out, pushing anything worth selling int
 
 //And removing your Blinker while under suspicion for a crime is thirty years.//
 
-You&#39;ve made it all the way onto the curb when the cops show up to take you to the station. 
+You&#39;ve made it all the way onto the curb when the cops show up to take you to [[the station-&gt;station]]. 
 
-&quot;Don&#39;t worry,&quot; says the female officer with her hair in a slick bun. &quot;We&#39;ll run the test on your Blinker, see what you&#39;ve seen, and then it&#39;ll all be over.&quot;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1to1BWF4-BRtrynWnTFPR2UJRtl5AquT8”&gt;</tw-passagedata><tw-passagedata pid="73" name="pasta2" tags="" position="1093,4089.333333333334" size="100,100">//Maybe if I act normally, they won&#39;t know I&#39;ve seen anything dangerous. At least until I know what to do.//
 
+You eat a few pieces of cold pasta, chewing for an eternity to prepare your aggrivated stomach. 
+
+  (live: 4s)[
+    (stop:)
+//I can&#39;t go to the police. They&#39;re mostly owned by him anyways. It&#39;ll be like what happened to my parents.//
+ ]
+  (live: 7s)[
+    (stop:)
+And then you feel a buzz, and the fake voice.
+ ]
+  (live: 8s)[
+    (stop:)
+//There is someone at your door.//
+ ]
+[[You check the front door camera-&gt;front door camera]]</tw-passagedata><tw-passagedata pid="74" name="hal.tracks" tags="" position="1107.3333333333333,275.33333333333337" size="100,100">wakeup: ./media/chill.mp3
+
+mansion-intro: ./media/mansion-intro.mp3
+mansion-middle: ./media/mansion-middle.mp3
+mansion-end: ./media/mansion-end.mp3
+
+pop: ./media/pop.mp3
+goodending: ./media/gooending.mp3
+invites: ./media/invites.mp3
+
+memoryloss: ./media/memoryloss.mp3
+dreamsong: ./media/dreamsong.mp3
+
+eyesclosed: ./media/eyesclosed.mp3
+cannibalism: ./media/cannibalism.mp3
+running: ./media/running.mp3
+</tw-passagedata><tw-passagedata pid="75" name="parlour" tags="" position="265.33333333333337,1982.6666666666665" size="100,100">(set: $time to $time + 1)
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1C5ubrNrG7QxTrMC8nCbic2AxOkr6CtY9&quot;&gt;
+You go to the back of the estate, past the kitchen and into the parlour. 
+
+[[Play a solo game of pool.-&gt;pool]]
+[[Play solitare.-&gt;solitare]]</tw-passagedata><tw-passagedata pid="76" name="pool" tags="" position="183.33333333333334,2147" size="100,100">You place all the balls in the metal triangle. You push it back and forth a couple times until they&#39;re evenly spaced, then make your first move.
+
+You&#39;re going for the more impressive shots because you&#39;re the only one playing, and you&#39;re on your third sunken ball when you hear shouting outside.
+
+Lucas Lester is yelling at a cook, you can see her outside of the parlour threshold. She makes eye contact with you and he goes silent, craning his neck into view to see you.
+
+&quot;Jane. Why don&#39;t you go grab some people from the party to play with you?&quot;
+
+You nod automatically and [[rush back to the party-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="77" name="solitare" tags="" position="326.9999999999999,2141" size="100,100">It gets old after one game. You pocket the deck of cards and [[head back-&gt;the mansion.]] to the party.</tw-passagedata><tw-passagedata pid="78" name="station" tags="" position="801,4347" size="100,100">&quot;Don&#39;t worry,&quot; says the female officer with her hair in a slick bun. &quot;We&#39;ll run the test on your Blinker, see what you&#39;ve seen, and then it&#39;ll all be over.&quot;
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1AdhBCxRGeWWY1Axnx570_yxGtmQpdOia&quot;&gt;
 She watches your footage with you, fast forwarding up until the red room. You watch as you peer over the window pane, only this time there&#39;s nobody outside. It&#39;s all an empty garden. 
 
 (link-reveal:&quot;\&quot;He doctored the footage,\&quot;&quot;)[= you say. &quot;I swear, he doctored the footage, I saw those girls die.&quot;
@@ -1123,7 +1092,9 @@ She watches your footage with you, fast forwarding up until the red room. You wa
 
 &quot;If you&#39;re saying this because there&#39;s something you&#39;re hiding from us, you should tell me now.&quot;
 
-They lead you back to a jail cell with a cot and a yellowing toilet. You lie on the cot sleeplessly with your eyes tightly shut. A (link-reveal:&quot;buzzing in your head interrupts the silence:&quot;)[= 
+They lead you back to a jail cell with a cot and a yellowing toilet. You lie on the cot sleeplessly with your eyes tightly shut. 
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1_o3dEf6GpKH-d8riMSIPr7EYJAEktb5w&quot;&gt;
+A (link-reveal:&quot;buzzing in your head interrupts the silence:&quot;)[= 
 
 (link:&quot;//One new message from Lucas Lester//&quot;)[=
 
@@ -1131,37 +1102,191 @@ They lead you back to a jail cell with a cot and a yellowing toilet. You lie on 
 
 [[THE END.-&gt;THE END]]
 
-</tw-passagedata><tw-passagedata pid="88" name="pasta2" tags="" position="1075.3333333333333,4047.666666666667" size="100,100">//Maybe if I act normally, they won&#39;t know I&#39;ve seen anything dangerous. At least until I know what to do.//
+</tw-passagedata><tw-passagedata pid="79" name="credits" tags="" position="84.66666666666666,214.33333333333334" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXXXXXXXXXXXXXXXX=&quot;)[Blinkers is a work of interactive fiction by Georgia Berg. 
+---
+&#39;&#39;Soundtrack&#39;&#39;
 
-You eat a few pieces of cold pasta, chewing for an eternity to prepare your aggrivated stomach. 
+//Act 1//
+Á Minuit, le 31 Décembre
+by Monroeville Music Center
 
-//I can&#39;t go to the police. They&#39;re mostly owned by him anyways. It&#39;ll be like what happened to my parents.//
-  (live: 7s)[
-    (stop:)
-And then you feel a buzz, and the fake voice.
- ]
-  (live: 8s)[
-    (stop:)
-//One new message from Lucas Lester.//
- ]
- [[Open the message.-&gt;mes]]</tw-passagedata><tw-passagedata pid="89" name="mes" tags="" position="1075.3333333333333,4197.666666666667" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="90" name="go2" tags="" position="1596.9999999999998,4097.666666666667" size="100,100">All the doors are locked, everyone else has gone home except for lester who you hear assuring everyone will deal with you.
+//Act 2//
+Blinker Theme (I, II, III) 
+by Georgia Berg 
 
-he has a gun, tells you to come into the dining room, you do, he says he will either shoot you or reboot your memory, your choice, the same as your parents.
+//Act 3//
+Being drunk and watching you sleep
+by Bisou de l&#39;enfant sauvage 
 
-[[Choose to die-&gt;die]]
-[[have your memory wipes-&gt;wake up w memory wiped]]</tw-passagedata><tw-passagedata pid="91" name="die" tags="" position="1521.9999999999998,4247.666666666667" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="92" name="wake up w memory wiped" tags="" position="1671.9999999999998,4247.666666666667" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="93" name="hal.tracks" tags="" position="995.8333333333334,339.66666666666663" size="100,100"></tw-passagedata><tw-passagedata pid="94" name="parlour" tags="" position="997,1401" size="100,100">(set: $time to $time + 1)
-You go to the back of the estate, past the kitchen and into the parlour. 
+machine n°4
+by Fashionfacts 
 
-[[Play a solo game of pool.-&gt;pool]]
-[[Play solitare.-&gt;solitare]]</tw-passagedata><tw-passagedata pid="95" name="pool" tags="" position="930.3333333333334,1602.666666666667" size="100,100">You place all the balls in the metal triangle. You push it back and forth a couple times until they&#39;re evenly spaced, then make your first move.
+Behavior state
+by DEREK PIOTR 
 
-You&#39;re going for the more impressive shots because you&#39;re the only one playing, and you&#39;re on your third sunken ball when you hear shouting outside.
+Blinkity Blank
+by Audio K 
 
-Lucas Lester is yelling at a cook, you can see her outside of the parlour threshold. She makes eye contact with you and he goes silent, craning his neck into view to see you.
+Languid dawn
+by Blear Moon
 
-&quot;Jane. Why don&#39;t you go grab some people from the party to play with you?&quot;
+Doctor Death
+by John Lopker
 
-You nod automatically and [[rush back to the party-&gt;the mansion.]].</tw-passagedata><tw-passagedata pid="96" name="solitare" tags="" position="1142,1596.0000000000002" size="100,100">It gets old after one game. You pocket the deck of cards and [[head back-&gt;the mansion.]] to the party.</tw-passagedata></tw-storydata>
+[[Back to title card.-&gt;title card]]</tw-passagedata><tw-passagedata pid="80" name="content warnings" tags="" position="262.99999999999994,329.3333333333333" size="100,100">This story deals with some heavy themes. If you have found anything in this story that there is not sufficient warning for, or you have any questions about the severity of content before playing, please reach out to g3berg@uwaterloo.ca.
+---
+(link-reveal:&quot;Sensory descriptions&quot;)[
+* Contains use of music and some sudden sound effects. Volume of music can be adjusted by the side bar, although this &#39;&#39;will not adjust the volume of sound effects&#39;&#39;. You must adjust your master volume to mute sound effects.
+* Flashing text/colours is present in some endings. 
+* All art is in an ink-drawing style]
+(link-reveal:&quot;Content warnings (contains spoilers)&quot;)[
+* Charectes are referenced to have committed suicide, although this is revealed to be a cover-up for murder in one ending.
+* In one ending, the playable charecter is forced to kill herself, but has no suicidal ideations. 
+* Violence including murder (gun violence) and cannibalism.
+* Violence against women.
+* Mind control.
+* Mild sex &amp; foul language.
+* Minor mentions of drugs/alcohol.]
+
+[[Back to title card.-&gt;title card]]</tw-passagedata><tw-passagedata pid="81" name="act 3" tags="" position="1505.3333333333335,2232.666666666667" size="100,100">Act 3
+[[The dinner.-&gt;dining room]]</tw-passagedata><tw-passagedata pid="82" name="act 3.2" tags="" position="787,2591.6666666666665" size="100,100">Act 3
+[[Skipping dinner.-&gt;rr-cont]]</tw-passagedata><tw-passagedata pid="83" name="go" tags="" position="1389.6666666666667,3629.3333333333335" size="100,100">You jiggle the door handle, and it doesn’t come undone. None of the locks unlock it. It’s locked from the outside.
+
+You turn to run someplace else, to find somewhere you can hide, but Lucas Lester is sitting on the couch in the main parlour. It’s all empty except for him now, with an open laptop in his lap.
+
+“Jane, come over here.” He pats the seat beside him twice, like you’re a dog who just shit the bed. 
+
+[[Go to the couch.-&gt;Gocouch]]
+[[Stay where you are.-&gt;Staywherer]]
+</tw-passagedata><tw-passagedata pid="84" name="Gocouch" tags="" position="1398.0000000000002,3802.666666666667" size="100,100">There’s no way you’re getting out of this. There’s ways out of this mansion, sure, but you’d only be escaping into his world. You’d rather walk on your feet to him than crawl like any of those girls in the garden.
+
+Still, you wish you didn’t need to be beside him, like some kind of friend or lover, like every cell in your body didn’t try to undo mitosis in his presence. 
+
+“Jane, what do you think happened to your parents?”
+
+[[“They killed themselves.”-&gt;killed-themselves]]
+[[“You killed them.&quot;-&gt;killed-them]]
+</tw-passagedata><tw-passagedata pid="85" name="Staywherer" tags="" position="1701.3333333333335,3789.3333333333335" size="100,100">You plant your feet firmly on the ground, so that when you need to run from him you can. He can know anything he wants about you, that doesn’t mean he’ll get you.
+
+“Jane. I wish you would have just listened to me.”
+
+He sighs and shakes his head, and begins to type something in the laptop. He hesitates over the final key, looking you over disapprovingly. 
+
+When he presses it, you begin walking. All of the worry is zapped up as you stride, replaced with nothing but the sensation of putting one foot over the other, the cool air from the open garden doors passing over you.
+
+“Jane, what do you think happened to your parents?”
+
+[[“They killed themselves.”-&gt;killed-themselves]]
+[[“You killed them.&quot;-&gt;killed-them]]
+</tw-passagedata><tw-passagedata pid="86" name="killed-themselves" tags="" position="1434.666666666667,3991" size="100,100">He walks across the parlour floor, opens up a desk drawer and pulls out a gun.
+
+“You have two options. You can sign a Black Box employment contract, and then let me wipe your memory of everything else that’s happened tonight, or,” he places the gun in front of you, “you can kill yourself.”
+
+&quot;Would you like me to draw up the employment papers?&quot;
+
+[[&quot;Yes.&quot;-&gt;yes]]
+[[&quot;No.&quot;-&gt;no]]</tw-passagedata><tw-passagedata pid="87" name="front door camera" tags="" position="1093,4239.333333333334" size="100,100">//Blinker, check front door.//
+
+It&#39;s Julianna, from the party. She&#39;s looking up, and sideways, and is grimacing tightly. She a dark scarf wrapped around her head.
+
+A knock comes from the front door, followed by the picture on the camera, just a moment delayed.
+
+[[Open the front door.-&gt;open front door]]</tw-passagedata><tw-passagedata pid="88" name="open front door" tags="" position="1223,4159.333333333333" size="100,100">You open the front door, and she quickly comes in behind you. 
+
+&quot;Close the door,&quot; she says. &quot;You need to decide now if you trust me or not. I can help you out, but only if you do exactly as I say.&quot;
+
+There&#39;s a knife in her hand.
+
+&quot;I need you to close your eyes.&quot;
+
+[[Trust her and close your eyes.-&gt;trust her]]
+</tw-passagedata><tw-passagedata pid="89" name="trust her" tags="" position="1201.3333333333335,4327.666666666667" size="100,100">You shut your eyes.
+
+&quot;Okay,&quot; she says. &quot;I&#39;m just putting a blindfold on you, but still try to keep them closed.&quot;
+
+She guides you to sit on the shoe rack you keep near the front door. You hear her slide them all onto the ground. She holds your head tightly in her hand, and you can feel the tip of a blade against your temple.
+
+&quot;This is going to hurt, but you need to [[stay still-&gt;still]].&quot;</tw-passagedata><tw-passagedata pid="90" name="still" tags="" position="1351.3333333333333,4509.333333333334" size="100,100">You take a deep breath in, and she presses the knife into your skin. It hurts like hell, but opens around the thin strip of scar tissue, and before you can scream out, a hum that was intangible until it&#39;s absense stops, and she is pulling you out of the door, into the driveway barefoot. Your blindfold falls as she is pushing you into the back of a black van.
+
+She slams the door shut beside herself, and the van peels out of the driveway. 
+
+There&#39;s two other people sitting in the back of the van, a man and a woman. The woman has black hair in french braids, she sits beside you, first aid kit already opened, and begins bandaging you.
+
+&quot;How much of you did she see?&quot; the man asks Julianna. 
+
+&quot;She saw me and the knife before I got her Blinker out. I&#39;d give Lucas Lester five minutes until he notices either of us are gone, another five to figure out what&#39;s going on.&quot;
+
+&quot;So we have ten minutes to complete a thirty minute drive. Great.&quot;
+
+&quot;She didn&#39;t see the van, plus, I left behind two shuttle tickets scheduled for an hour from now. It&#39;ll throw them off for a while at least.&quot;
+
+The woman guides your hand to your wound, and instructs you to hold light pressure over top of the bandaid for as long as you can.
+
+     (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;goodending&#39;, &#39;play&#39;)
+
+
+[[&quot;What&#39;s going on?&quot; you ask.-&gt;ask]]</tw-passagedata><tw-passagedata pid="91" name="ask" tags="" position="1498,4537.666666666667" size="100,100">&quot;We&#39;re getting out of here,&quot; says the driver, an old man with little hair left. &quot;Up the border, then to someplace where they had the good sense to keep their heads as they are.&quot;
+
+Night becomes midnight as the border is crossed. The back of the truck gives the driver a little round of applause.
+
+&quot;It&#39;s easier for Lester to just let us go than it is to come after us,&quot; it&#39;s the first thing Julianna says to you. You can&#39;t see her in the dark, but you wish you could. 
+
+&quot;Hey, kid.&quot; The driver calls up to you. &quot;You&#39;re free now. How about that?&quot;
+
+[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="92" name="killed-them" tags="" position="1646.3333333333335,3989.333333333334" size="100,100">He walks across the parlour floor, opens up a desk drawer and pulls out a gun.
+
+“You have two options. You can sign a Black Box employment contract, and then let me wipe your memory of everything else that’s happened tonight, or I can kill you.”
+
+&quot;Would you like me to draw up the employment papers?&quot;
+
+[[&quot;Yes.&quot;-&gt;yes]]
+[[&quot;No.&quot;-&gt;no-t]]</tw-passagedata><tw-passagedata pid="93" name="yes" tags="" position="1403.0000000000002,4204.333333333332" size="100,100">&quot;Yes.&quot;
+
+You don&#39;t try to make excuses, at least. 
+
+Some part of you is grateful. This is the closest you will ever get to confirmation your parents&#39; choices were not born out of selfishness or indifference towards you, but were forced. Repeating their mistakes is the closest you&#39;ll ever get to forgiving them. 
+
+     (group: &#39;playing&#39;, &#39;stop&#39;)
+    (track: &#39;memoryloss&#39;, &#39;play&#39;)
+
+
+Lester doesn&#39;t take long to procure the papers. He sends a message to off to someone, and the papers are handed to him before any of your tears have split out of your tear ducts. 
+
+You don&#39;t really read it. What&#39;s the point? There&#39;s nothing he won&#39;t ask of you now.
+
+[[You sign on the dotted line, and every page after that.-&gt;sign]]</tw-passagedata><tw-passagedata pid="94" name="no" tags="" position="1603,4206" size="100,100">&quot;No?&quot; he asks. 
+
+&quot;After all your parents did for you, after all they sacrificed so nothing would happen to you?&quot;
+
+(link-reveal:&quot;\&quot;What do you mean?\&quot;&quot;)[=
+
+&quot;You&#39;re so stupid. You thought they cared enough about themselves to do that work?&quot;
+
+He pushes the gun into your hands. 
+
+&quot;Go ahead, then.&quot;
+
+[[Kill yourself.-&gt;THE END]]
+</tw-passagedata><tw-passagedata pid="95" name="sign" tags="" position="1553.0000000000002,4370.999999999999" size="100,100">The humming in your right temple wakes you up. Your stomach is the first thing you feel, a sharp ache. You can&#39;t remember how much you had to drink last night, but you feel foggy as well.
+
+&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;id=1czb_upW7A4S1xogsaGnX1GrV2_qRLYpc&quot;&gt;
+
+//Good morning Jane,// the Blinker pipes up from within your mind, more metallic than any of your own thoughts. //and congratulations on the new position! Please feel free to read the Black Box manuel on upgrading Blinker services for Black Box employment.//
+
+It feels like the automated voice is trying not to laugh as you throw up into the front drawer of your nightstand.
+
+[[THE END.-&gt;THE END]]</tw-passagedata><tw-passagedata pid="96" name="no-t" tags="" position="1803,4199.333333333333" size="100,100">&quot;No?&quot; he asks. 
+
+&quot;After all your parents did for you, after all they sacrificed so nothing would happen to you?&quot;
+
+(link-reveal:&quot;\&quot;What do you mean?\&quot;&quot;)[=
+
+&quot;You&#39;re so stupid. You thought they cared enough about themselves to do that work? No,&quot; he picks up the gun. &quot;And I wish they could see me making it all go to waste now.&quot;
+
+Whether it was cowardice or kindness, he shuts off your vision for the final few seconds. 
+
+[[THE END.-&gt;THE END]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
