@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>rsvp</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #f3ede0;
+    color: #2b2620;
+  }
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 3rem 1.5rem 4rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+  pre {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: pre;
+    color: #4a3f33;
+  }
+  h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    font-size: 1.4rem;
+    letter-spacing: 0.4em;
+    margin: 1.5rem 0 0;
+    text-transform: lowercase;
+  }
+  .divider {
+    margin: 1.4rem 0;
+    letter-spacing: 0.6em;
+    color: #8a7a64;
+  }
+  .stars {
+    color: #b29a78;
+  }
+  form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    color: #4a3f33;
+  }
+  label span {
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dotted #8a7a64;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #2b2620;
+    padding: 0.4rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid #2b2620;
+  }
+  button {
+    background: transparent;
+    border: 1px solid #4a3f33;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #2b2620;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    margin-top: 0.5rem;
+    transition: background 0.15s, color 0.15s;
+  }
+  button:hover {
+    background: #4a3f33;
+    color: #f3ede0;
+  }
+  a {
+    color: #6a5d4d;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 4px;
+    font-size: 0.9rem;
+  }
+  a:hover {
+    color: #2b2620;
+  }
+  .back {
+    margin-top: 2rem;
+  }
+  .confirm {
+    text-align: center;
+    max-width: 34ch;
+    font-style: italic;
+    color: #4a3f33;
+  }
+</style>
+</head>
+<body>
+
+<pre class="stars">
+       *      .       *           .
+   .                .          *
+</pre>
+
+<pre>
+       _____________________
+      |\                   /|
+      | \                 / |
+      |  \               /  |
+      |   \             /   |
+      |    \___________/    |
+      |____|___________|____|
+</pre>
+
+<pre class="stars">
+   .          *           .         *
+</pre>
+
+<h1>rsvp</h1>
+
+<div class="divider">~ &middot; ~ &middot; ~</div>
+
+<form id="rsvp-form" onsubmit="handleSubmit(event)">
+  <label>
+    <span>name</span>
+    <input type="text" id="name" name="name" required>
+  </label>
+  <label>
+    <span># of guests (including you)</span>
+    <input type="number" id="guests" name="guests" min="1" value="1" required>
+  </label>
+  <label>
+    <span>contact phone number</span>
+    <input type="tel" id="phone" name="phone" required>
+  </label>
+  <button type="submit">send</button>
+</form>
+
+<div id="confirmation" class="confirm" style="display:none">
+  thanks &mdash; see you saturday
+</div>
+
+<a href="housewarming.html" class="back">&larr; back</a>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const guests = document.getElementById('guests').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+
+  const subject = encodeURIComponent('housewarming rsvp — ' + name);
+  const body = encodeURIComponent(
+    'name: ' + name + '\n' +
+    'guests: ' + guests + '\n' +
+    'phone: ' + phone
+  );
+
+  // swap YOUR_EMAIL@example.com for the address you want rsvps sent to
+  window.location.href = 'mailto:YOUR_EMAIL@example.com?subject=' + subject + '&body=' + body;
+
+  document.getElementById('rsvp-form').style.display = 'none';
+  document.getElementById('confirmation').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
