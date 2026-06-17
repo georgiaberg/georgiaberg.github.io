@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.06</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500&display=swap');
+        
+        :root {
+            --bg: #F7F4EF;
+            --text: #2A2421;
+            --accent-1: #C65A3F; /* Terracotta */
+            --accent-2: #DF9775; /* Warm Sand */
+            --accent-3: #E0A96D; /* Ochre */
+            --panel-bg: #EFEBE4;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Geometric Mandala */
+        .header-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            margin-bottom: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mandala {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: spin 180s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .title-block {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 2.8rem;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-top: 10px;
+            color: var(--accent-1);
+        }
+
+        /* Kinetic Timeline Container */
+        .timeline {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Moving Box / Shutter Component */
+        .card {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            background-color: var(--panel-bg);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .shutter {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 24px;
+            box-sizing: border-box;
+            transition: transform 0.7s cubic-bezier(0.85, 0, 0.15, 1);
+            z-index: 2;
+        }
+
+        /* Alternating warm tones for the mosaic look */
+        .card:nth-child(3n+1) .shutter { background-color: var(--accent-1); color: #FFF; }
+        .card:nth-child(3n+2) .shutter { background-color: var(--accent-2); color: var(--text); }
+        .card:nth-child(3n+3) .shutter { background-color: var(--accent-3); color: var(--text); }
+
+        .shutter .time {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Revealed Content Styles */
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 24px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .location {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            margin: 4px 0 0 0;
+            opacity: 0.8;
+            line-height: 1.3;
+        }
+
+        /* Active State: Slides box to the right */
+        .card.open .shutter {
+            transform: translateX(100%);
+        }
+
+        /* Sophisticated Minimal Links */
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 1px;
+        }
+        
+        a:hover {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-container">
+    <!-- Sophisticated Fine-line Mandala Background -->
+    <svg class="mandala" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="95" stroke="#DF9775" stroke-width="0.5" stroke-dasharray="2 4"/>
+        <circle cx="100" cy="100" r="80" stroke="#C65A3F" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="65" stroke="#E0A96D" stroke-width="0.5" stroke-dasharray="6 3"/>
+        <path d="M100 0 V200 M0 100 H200" stroke="#DF9775" stroke-width="0.2" opacity="0.5"/>
+    </svg>
+    
+    <div class="title-block">
+        <h1>Georgia & Parsa</h1>
+        <div class="date">Wednesday, June 17th</div>
+    </div>
+</div>
+
+<div class="timeline">
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">17:00</span></div>
+        <div class="content">
+            <h2 class="location"><a href="https://typebooks.ca/" target="_blank" onclick="event.stopPropagation();">Type Books</a></h2>
+            <p class="details">Taxi (10m). Purchase a book meant to expand the other.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">17:50</span></div>
+        <div class="content">
+            <h2 class="location">Walk</h2>
+            <p class="details">Heading towards dinner.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">18:00</span></div>
+        <div class="content">
+            <h2 class="location"><a href="https://sushimomo.ca/" target="_blank" onclick="event.stopPropagation();">Sushi Momo</a></h2>
+            <p class="details">Dinner reservation.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">19:30</span></div>
+        <div class="content">
+            <h2 class="location">Walk</h2>
+            <p class="details">15-minute transit to the next spot.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">20:00 — 21:30</span></div>
+        <div class="content">
+            <h2 class="location"><a href="https://thepaintedlady.ca/" target="_blank" onclick="event.stopPropagation();">The Painted Lady</a></h2>
+            <p class="details">1h piano. 30m EDM. $5 wine.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">21:30</span></div>
+        <div class="content">
+            <h2 class="location">Transit</h2>
+            <p class="details">20-minute movement back toward home area.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">21:50</span></div>
+        <div class="content">
+            <h2 class="location">Geary Parkette</h2>
+            <p class="details">Brief stop.</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+        <div class="shutter"><span class="time">22:10</span></div>
+        <div class="content">
+            <h2 class="location">Home</h2>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleCard(element) {
+        element.classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>
