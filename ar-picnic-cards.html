@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authentic Relating Picnic — Game Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17150F;
+    --paper:#FFFDF7;
+    --moss:#3F5233;
+    --grass:#8A7B5C;
+    --rule:#17150F;
+    --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --body:"Atkinson Hyperlegible","Verdana",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#E7E3D8;color:var(--ink);font-family:var(--body);}
+
+  /* ---------- SCREEN PREVIEW ---------- */
+  .sheet{
+    width:8.5in; height:11in;
+    margin:0 auto 24px; padding:0;
+    background:var(--paper);
+    box-shadow:0 2px 18px rgba(0,0,0,.18);
+    display:flex; flex-direction:column;
+  }
+
+  .card{
+    height:5.5in; width:100%;
+    padding:0.42in 0.5in 0.34in;
+    display:flex; flex-direction:column;
+    position:relative; overflow:hidden;
+  }
+  .card + .card{border-top:1px dashed rgba(23,21,15,.45);}
+  .card + .card::before{
+    content:"✂"; position:absolute; top:-9px; left:0.22in;
+    font-size:12px; color:rgba(23,21,15,.5); background:var(--paper);
+    padding:0 4px; line-height:1;
+  }
+
+  /* ---------- BAND ---------- */
+  .band{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin:-0.42in -0.5in 0.16in; padding:6px 0.5in 5px;
+    background:var(--ink); color:var(--paper);
+  }
+  .band .tier{
+    font-size:8.5pt; font-weight:700; letter-spacing:.19em; text-transform:uppercase;
+  }
+  .dial{display:flex; align-items:center; gap:7px;}
+  .dial .lbl{font-size:6.8pt; letter-spacing:.13em; text-transform:uppercase; opacity:.72;}
+  .pips{display:flex; gap:3px;}
+  .pip{width:9px; height:9px; border:1.4px solid var(--paper);}
+  .pip.on{background:var(--paper);}
+
+  /* ---------- HEAD ---------- */
+  h2.title{
+    font-family:var(--display); font-weight:900; font-size:29pt; line-height:.94;
+    letter-spacing:-.018em; margin:0 0 13px;
+  }
+
+  .spec{
+    display:flex; gap:0; border-top:1.5px solid var(--rule); border-bottom:1.5px solid var(--rule);
+    margin-bottom:11px;
+  }
+  .spec div{
+    flex:1; padding:5px 0 5px 10px; border-left:1px solid rgba(23,21,15,.25);
+  }
+  .spec div:first-child{padding-left:0; border-left:0;}
+  .spec b{display:block; font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--grass); margin-bottom:1px;}
+  .spec span{font-size:9.6pt; font-weight:700;}
+
+  /* ---------- BODY ---------- */
+  .cue{
+    font-size:7.4pt; letter-spacing:.13em; text-transform:uppercase; font-weight:700;
+    color:var(--grass); margin-bottom:5px;
+  }
+  .steps{
+    font-size:10.3pt; line-height:1.42; margin:0; padding-left:0; list-style:none;
+    border-left:2.5px solid var(--moss); padding-left:13px;
+  }
+  .steps li{margin-bottom:6px;}
+  .steps li:last-child{margin-bottom:0;}
+  .steps em{font-style:italic; color:var(--moss);}
+  .steps strong{font-weight:700;}
+
+  .foot{
+    margin-top:auto; padding-top:9px; border-top:1px solid rgba(23,21,15,.3);
+    display:flex; justify-content:space-between; align-items:flex-end; gap:14px;
+  }
+  .close{font-size:9pt; line-height:1.3; max-width:5.5in;}
+  .close b{font-size:6.6pt; letter-spacing:.16em; text-transform:uppercase; color:var(--grass); display:block; margin-bottom:2px;}
+  .src{font-size:6.4pt; color:var(--grass); text-align:right; line-height:1.3; white-space:nowrap;}
+
+  /* ---------- HOST SHEET ---------- */
+  .host{height:11in; padding:0.6in 0.72in; display:flex; flex-direction:column;}
+  .host h1{
+    font-family:var(--display); font-weight:900; font-size:40pt; line-height:.9;
+    letter-spacing:-.025em; margin:0 0 6px;
+  }
+  .host .kicker{font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--grass); margin-bottom:12px;}
+  .host .lede{font-family:var(--display); font-style:italic; font-weight:600; font-size:13pt; line-height:1.3; color:var(--moss); margin:0 0 16px; max-width:6.4in;}
+  .cols{display:flex; gap:26px; flex:1;}
+  .col{flex:1;}
+  .host h3{
+    font-size:7.6pt; letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+    margin:0 0 6px; padding-bottom:3px; border-bottom:1.5px solid var(--ink);
+  }
+  .host ul{margin:0 0 16px; padding-left:15px; font-size:9.4pt; line-height:1.45;}
+  .host li{margin-bottom:5px;}
+  .host p.note{font-size:9.4pt; line-height:1.45; margin:0 0 16px;}
+  .legend{display:flex; flex-direction:column; gap:6px; margin-bottom:16px;}
+  .legend .row{display:flex; align-items:center; gap:9px; font-size:9.2pt;}
+  .legend .pip{border-color:var(--ink);}
+  .legend .pip.on{background:var(--ink);}
+  .hostfoot{border-top:1.5px solid var(--ink); padding-top:8px; font-size:7.4pt; color:var(--grass); line-height:1.4;}
+
+  @media screen and (max-width:9in){
+    body{padding:12px;}
+    .sheet{width:100%; height:auto;}
+    .card{height:auto; min-height:0;}
+    .host{height:auto;}
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{size:letter portrait; margin:0;}
+  @media print{
+    html,body{background:#fff;}
+    .sheet{width:8.5in; height:11in; margin:0; box-shadow:none; page-break-after:always; break-after:page;}
+    .sheet:last-child{page-break-after:auto;}
+    .card{page-break-inside:avoid; break-inside:avoid;}
+    .band{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .pip.on{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HOST SHEET ============ -->
+<div class="sheet">
+  <div class="host">
+    <div class="kicker">Read this before you print · Host copy · Not a card</div>
+    <h1>Games on a<br>blanket.</h1>
+    <p class="lede">Twenty-eight authentic relating games, rewritten so a stranger can pick one up off a picnic blanket and run it without you standing over them.</p>
+
+    <div class="cols">
+      <div class="col">
+        <h3>Setting up</h3>
+        <ul>
+          <li>Print single-sided, cut along the dashed lines. You get 28 half-page cards.</li>
+          <li>Lay them out in <strong>four piles by tier</strong>, left to right, in the order they're printed. The order is the arc of the afternoon.</li>
+          <li>Put a hand-written sign on each pile with the group size range, so people can self-sort fast.</li>
+          <li>Cardstock survives grass and wind. Regular paper needs a rock on each pile.</li>
+        </ul>
+
+        <h3>The only three things you say out loud</h3>
+        <ul>
+          <li><strong>One person reads the whole card aloud</strong> before anyone starts. Including the closing line at the bottom.</li>
+          <li><strong>Passing is always fine</strong> — on a question, on a turn, on a whole game. No one explains why.</li>
+          <li><strong>Someone runs the timer.</strong> Nobody's calling time for you. Nominate a person per group.</li>
+        </ul>
+
+        <h3>What the pips mean</h3>
+        <div class="legend">
+          <div class="row"><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span> Silly. No self-disclosure required.</div>
+          <div class="row"><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span> You'll say true things about yourself.</div>
+          <div class="row"><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span> You may get seen more than you planned.</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3>A shape that works for a drop-in picnic</h3>
+        <ul>
+          <li><strong>First hour:</strong> only Tier 1 and 2 on the blanket. People are arriving, eating, and won't commit to a pair exercise with food in their hands.</li>
+          <li><strong>Once there's a crowd:</strong> call one whole-group game yourself — Rock Paper Scissors Tournament is the best cold-open ever invented. It gives everyone permission to be loud in public.</li>
+          <li><strong>Mid-afternoon:</strong> put out Tier 3. Groups will have found each other by now. Don't announce it, just add the pile.</li>
+          <li><strong>Before people drift off:</strong> Tier 4. If you only do one, do Appreciation Dyads.</li>
+        </ul>
+
+        <h3>Deliberately left out</h3>
+        <p class="note">The manual has excellent games I didn't include, because they need a trained facilitator watching, an established group, or both: <em>Doom Circle, Fly on the Wall, Impression Spectrum, Kiss Kiss Diss, Anonymous Confessions, Withholds, Progressive Touch, Angel Walk, Try Me On, Shadow Operation.</em> Handed to strangers with no one holding the room, these go wrong. Leave them out of the pile.</p>
+
+        <h3>Touch</h3>
+        <p class="note">Five cards involve touch, and they're deliberately spread across the range. <em>Race Cars</em> and <em>The Stick Game</em> are physical but not intimate — hands on shoulders, a stick between two fingertips. <em>Reach Out</em> and <em>Touch My Elbow</em> are slower and need both people to actually want them. <em>Unconditional Hugs</em> is the warmest and has the clearest opt-out built into it. Every one of them can be declined mid-game by lowering your hands, and every card says so.</p>
+      </div>
+    </div>
+
+    <div class="hostfoot">
+      Games adapted from the <strong>Authentic Relating Games Manual v7</strong>, compiled by Sara Ness of Authentic Revolution with editing by Jeannie Bogue, and contributed by communities worldwide. Original licensed CC BY-SA 4.0 — authrev.org. These cards are a derivative work and carry the same license. Wording rewritten for unfacilitated play; check the manual for the original directions, variations, and full attributions.
+    </div>
+  </div>
+</div>
+
+<!-- ============ TIER 1 ============ -->
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Rock Paper Scissors Tournament</h2>
+    <div class="spec">
+      <div><b>People</b><span>6–40</span></div>
+      <div><b>Time</b><span>5–10 min</span></div>
+      <div><b>Space</b><span>Room to mill about</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Find anyone. Play one round of rock paper scissors.</li>
+      <li>The loser <strong>does not leave.</strong> They stand behind the winner and become their loudest, most undignified fan — chanting their name, cheering every round.</li>
+      <li>Winners go find other winners. Whoever loses, their whole entourage joins the other person's entourage.</li>
+      <li>Crowds merge. Eventually two enormous mobs face off for the final. Everyone screams.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Champion takes a victory lap. Everyone applauds. Play again or move on.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">I'm a Tree!</h2>
+    <div class="spec">
+      <div><b>People</b><span>5–15</span></div>
+      <div><b>Time</b><span>10–15 min</span></div>
+      <div><b>Space</b><span>Standing circle</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>One person steps into the middle: <em>"I'm a tree,"</em> and makes a tree shape.</li>
+      <li>Two more people step in and add to the scene, saying what they are and holding the shape. <em>"I'm an apple." "I'm a squirrel."</em></li>
+      <li>The tree picks <strong>one</strong> to stay: <em>"The squirrel stays."</em> The other two sit down.</li>
+      <li>The survivor restates what they are — <em>"I'm a squirrel"</em> — and two new people join. Repeat.</li>
+      <li>It really opens up when people go abstract: <em>"I'm the squirrel's fear of commitment."</em></li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Whenever the laughing peaks. Don't wait for a natural stopping point; there isn't one.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Best Friends &amp; Mortal Enemies</h2>
+    <div class="spec">
+      <div><b>People</b><span>8–30</span></div>
+      <div><b>Time</b><span>5 min</span></div>
+      <div><b>Space</b><span>Open grass</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Everyone spread out and wander. <strong>Silently</strong> pick one person to be your best friend. Don't tell them, don't look at them too hard.</li>
+      <li>On the count of three — get as close to your best friend as you possibly can. <em>Three, two, one, go.</em></li>
+      <li>Now silently pick a mortal enemy. On three, get as far away from them as you can.</li>
+      <li>Final round: get your best friend <strong>between you and your enemy.</strong> Go.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>When everyone's out of breath. Reveal your picks if you want; it's funnier if you don't.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Whatcha Doin'?</h2>
+    <div class="spec">
+      <div><b>People</b><span>3–10</span></div>
+      <div><b>Time</b><span>5–10 min</span></div>
+      <div><b>Space</b><span>Circle, sitting or standing</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>One person starts miming an activity — swinging a bat, folding laundry, whatever.</li>
+      <li>The person next to them asks: <em>"Whatcha doin'?"</em></li>
+      <li>The mimer answers with <strong>something completely different</strong> from what they're actually doing. <em>"I'm brushing my teeth."</em></li>
+      <li>Now the asker starts miming <em>that</em> — brushing teeth. The next person around asks <em>"Whatcha doin'?"</em> and gets another mismatched answer.</li>
+      <li>Answer fast. If you're thinking, you're too slow.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>After a lap or two. Works in pairs too, back and forth.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Two Three-Minute Fillers</h2>
+    <div class="spec">
+      <div><b>People</b><span>3–12</span></div>
+      <div><b>Time</b><span>3–5 min each</span></div>
+      <div><b>Space</b><span>Any circle</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li><strong>Fortune Cookie.</strong> Go around the circle. Each person says <em>one word</em>, building a single sentence together. When the sentence lands, that's the group's fortune. Read it back.</li>
+      <li><strong>Word Association.</strong> One word each, as fast as you can, whatever the last person's word pulled up. No censoring, no explaining. If you hesitate more than two seconds, just say the boring word.</li>
+      <li>Harder version: each word has to be something you're <strong>noticing or feeling right now</strong>, and the next person associates off that.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Two or three rounds. These are palate cleansers, not main courses.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">How's Yours?</h2>
+    <div class="spec">
+      <div><b>People</b><span>5–15</span></div>
+      <div><b>Time</b><span>10–20 min</span></div>
+      <div><b>Space</b><span>Circle + somewhere to step away</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>One person walks out of earshot.</li>
+      <li>Everyone else agrees on <strong>a thing they all have.</strong> Concrete: a toothbrush, a front door, a phone. Or abstract: childhood memories, a worst habit, a recurring worry. Abstract is more interesting.</li>
+      <li>They come back. They can ask only one question, to anyone, in any order: <em>"How's yours?"</em></li>
+      <li>Answer honestly but vaguely — one or two words. <em>"Chipped." "Loud." "Neglected."</em></li>
+      <li>They keep asking until they guess it. Then they pick who steps away next.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>After three or four rounds, or when someone picks something impossible and the group revolts.</div>
+      <div class="src">AR Games Manual v7 · Daniel Johnson<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Race Cars</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>7–10 min</span></div>
+      <div><b>Space</b><span>Clear open grass</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>A closes their eyes. B stands behind them and puts both hands on A's shoulders. A is the car, B is the driver.</li>
+      <li>A starts walking forward. B steers. <strong>B's entire job is not driving A into a tree.</strong></li>
+      <li>Start in first gear. After a bit, shift into second. Then third. Then fourth, at which point everyone is more or less running with their eyes shut.</li>
+      <li>Slow down, come to a stop, swap roles.</li>
+      <li>Cruel and excellent variation: swap drivers mid-lap without telling the car.</li>
+      <li>Check the ground first — blankets, food, dogs, small children.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Trade partners and go again. Best played by whoever is currently the most stuck in their head.</div>
+      <div class="src">AR Games Manual v7 · Dan Sieling<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Warm up · Tier 1</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">The Stick Game</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>10 min</span></div>
+      <div><b>Space</b><span>Anywhere · find a stick</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Each pair finds a stick about a hand's length. A pen works. Two index fingers pressed together works.</li>
+      <li>One fingertip each on either end. Now <strong>move around without dropping it.</strong> Walk, turn, crouch, go wherever.</li>
+      <li>After a few minutes, swap who's leading and who's following.</li>
+      <li>Then play with <strong>no assigned leader at all</strong> and see whether you can still tell who's deciding.</li>
+      <li>Harder: eyes closed. Or balance it between noses, elbows, shoulders.</li>
+      <li>Any pair that hasn't dropped it once should be given a second stick immediately.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Swap partners. It's a completely different game with someone else.</div>
+      <div class="src">AR Games Manual v7 · Authentic World<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TIER 2 ============ -->
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">One Time…</h2>
+    <div class="spec">
+      <div><b>People</b><span>3–8 (4 is ideal)</span></div>
+      <div><b>Time</b><span>10 min – an hour</span></div>
+      <div><b>Space</b><span>Sitting anywhere</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Take turns telling <strong>one-sentence true stories</strong> that start with <em>"One time…"</em></li>
+      <li>A comma is allowed. A semicolon is pushing it. A paragraph is cheating. Keep them hot and compressed: <em>"One time I got locked in a museum after closing."</em></li>
+      <li>Go around to the left, poker-style.</li>
+      <li><strong>Don't prepare while someone else is talking.</strong> Listen to them, and then notice what story surfaces. That's the actual practice here.</li>
+      <li>Optional theme for a round: fear, desire, money, things I don't tell my family, the worst thing I've eaten.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Last lap, each person adds: <em>"…and remembering that now, I feel ___."</em></div>
+      <div class="src">AR Games Manual v7 · Mike Blas<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">The Google Game</h2>
+    <div class="spec">
+      <div><b>People</b><span>2–5</span></div>
+      <div><b>Time</b><span>10–20 min</span></div>
+      <div><b>Space</b><span>Sitting anywhere</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Pick someone and search them: <em>"Priya, if I Googled you and</em> sunburn<em>, what would I find?"</em></li>
+      <li>Priya answers with whatever <strong>actually comes up in her memory</strong> — a story, an image, a feeling about sunburns. Not a fact, not a definition. Whatever's on the first page.</li>
+      <li>Then someone else searches someone else. Any noun works. Weirder nouns work better.</li>
+      <li><strong>Double-click:</strong> if something in their answer catches you, say <em>"double-click 'my grandmother'"</em> and they open that one up.</li>
+      <li>Optional: pick a theme and run all searches through it — shame, home, luck, money.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Whenever. This one also survives being played on a long drive.</div>
+      <div class="src">AR Games Manual v7 · Amy Silverman<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Social Sentence Stems</h2>
+    <div class="spec">
+      <div><b>People</b><span>3–20</span></div>
+      <div><b>Time</b><span>10–25 min</span></div>
+      <div><b>Space</b><span>Any circle</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>One person invents a sentence stem — an unfinished sentence they'd like to hear everyone answer.</li>
+      <li>Go around the circle. Everyone completes it, saying their name first if people don't all know each other. <strong>The person who chose the stem answers last.</strong></li>
+      <li>Then the next person around invents a stem. Continue until everyone's had a turn choosing.</li>
+      <li>Stems to steal if you're stuck: <em>Something I've changed my mind about is… / The last time I surprised myself was… / What I want more of this year is… / Something I'm bad at that I keep doing anyway is… / Right now I'm quietly excited about…</em></li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>When the circle's gone round once. Or don't — this can run all afternoon.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Anybody Else?</h2>
+    <div class="spec">
+      <div><b>People</b><span>8–25</span></div>
+      <div><b>Time</b><span>15–20 min</span></div>
+      <div><b>Space</b><span>Circle on blankets</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>One person stands and says something <strong>true about themselves</strong>, then asks: <em>"Anybody else?"</em></li>
+      <li>Everyone it's also true for stands up, <strong>looks around at who else is standing</strong>, and sits back down. That look is the whole point.</li>
+      <li>Next person stands and shares. Keep going.</li>
+      <li>Start light and let it find its own level: <em>"I'm the oldest sibling." "I've never actually read the book I say is my favourite." "I've cried this week." "I'm nervous right now."</em></li>
+      <li>No long stories — one sentence, something that could be true for someone else too.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>When the energy flags, or after everyone's shared once. Standing version: swap in <em>"Walk with me if…"</em> and everyone it's true for walks a lap together.</div>
+      <div class="src">AR Games Manual v7 · Authentic World<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Curiosity</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>20–25 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B. <strong>5 min:</strong> A asks B anything at all. The only rule — A has to <em>actually want to know</em> the answer. No polite questions. B can decline any question without explaining.</li>
+      <li><strong>1 min:</strong> B gives feedback. What landed, what didn't, anything you wished had been asked.</li>
+      <li><strong>3 min:</strong> A asks again, with that information.</li>
+      <li><strong>Then A gives three gifts,</strong> one sentence each: <em>"My first impression of you was…" · "I felt you most when…" · "What I really get about you is…"</em></li>
+      <li>Swap roles and run it again.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Optional: B replies with <em>"What I want you to get about me is…"</em> before you swap.</div>
+      <div class="src">AR Games Manual v7 · Authentic World<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Get to know each other · Tier 2</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Cartography</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>20 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B. <strong>7 min:</strong> B asks A <strong>only hypothetical questions.</strong> <em>"Would you ever…?" "Would you rather…?" "Would you like to…?"</em></li>
+      <li>A answers honestly, adding a condition where it's needed: <em>"Yes, if I knew nobody would find out."</em></li>
+      <li>Go for <strong>breadth, not depth.</strong> Collect as many landmarks as possible. Don't get stuck exploring one.</li>
+      <li><strong>2 min:</strong> B says <em>"What I think I get about you is…"</em> — hand over the map you drew.</li>
+      <li><strong>2 min:</strong> A says <em>"What I realize about myself is…"</em> — fill it in.</li>
+      <li>Swap and repeat.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Both of you will leave with a list of things you didn't know you had opinions about.</div>
+      <div class="src">AR Games Manual v7 · David Staab<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TIER 3 ============ -->
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Noticing</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>5–15 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>A starts: <em>"Sitting here with you, I notice…"</em> and names one thing from their experience right now.</li>
+      <li>B answers: <em>"Hearing that, I notice…"</em></li>
+      <li>Back and forth, same two phrases, for a few minutes. Keep eye contact if you can.</li>
+      <li>B's noticing <strong>doesn't have to relate</strong> to A's. The phrase just keeps you in relationship. What matters is that it's happening right now, not five minutes ago.</li>
+      <li>Try a round of each: a <strong>physical sensation</strong> · an <strong>emotion</strong> · a <strong>thought</strong> · something <strong>directly observable</strong> about the other person.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Harder and better version: <em>"I notice [something observable about you]… and I imagine…"</em> Then ask them: <em>"Is that true?"</em></div>
+      <div class="src">AR Games Manual v7 · Authentic World<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">What's That Like?</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>10 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B. A says what they're feeling right now, or whatever's on top for them.</li>
+      <li><strong>B's only move is to ask a version of <em>"What's that like?"</em></strong> That's it. <em>"What's it like to feel that?" "Where is that in your body?"</em></li>
+      <li>No advice. No stories of your own. No fixing. No changing the subject. B is a mirror, not a participant.</li>
+      <li>B can point at contradictions: <em>"What's it like to say that and be smiling?"</em></li>
+      <li>3–5 minutes, then swap.</li>
+      <li>It will feel weirdly restrictive around minute two. <strong>Stay in the format anyway</strong> — that's the whole exercise.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Sit quietly for thirty seconds before you start talking normally again.</div>
+      <div class="src">AR Games Manual v7 · Jordan Myska Allen<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">Empathy</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs (or 3)</span></div>
+      <div><b>Time</b><span>15–20 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B. Start with a few seconds of silent eye contact.</li>
+      <li><strong>2 min:</strong> A shares something that's on their heart.</li>
+      <li><strong>1 min:</strong> B reflects back <em>exactly what they heard</em>, with as little interpretation as they can manage. Not a summary — a mirror.</li>
+      <li><strong>2 min:</strong> A corrects, adds, or goes further.</li>
+      <li><strong>2 min:</strong> B shares what they felt listening, and what they get about A.</li>
+      <li>Swap. <strong>Don't compose your reflection while they're talking</strong> — you'll miss them, and they'll know.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>With three: C reflects second, after B. Trust the format; the silence between steps is doing work.</div>
+      <div class="src">AR Games Manual v7 · Austin Love Juggernaut<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">I've Felt That</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>10–15 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>A names <strong>three emotions</strong> they felt at one single moment in their life. <em>"Relieved, ashamed, and very awake."</em></li>
+      <li><strong>No story. No context. No explaining.</strong> Just the three words.</li>
+      <li>B sits with them for a moment, then tells a story of a time <em>they</em> felt those same three.</li>
+      <li>A says what felt similar, what felt different, what surprised them.</li>
+      <li>Swap.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Optional: A can then tell their own story, now that B has told theirs. Often it's completely different and lands anyway.</div>
+      <div class="src">AR Games Manual v7 · Zachary Robison<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">Hot Seat</h2>
+    <div class="spec">
+      <div><b>People</b><span>4–8</span></div>
+      <div><b>Time</b><span>15–40 min</span></div>
+      <div><b>Space</b><span>Circle with one seat in front</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Someone volunteers for the seat and announces their heat: <strong>mild, medium, or spicy.</strong> The group calibrates its questions to that. Believe them when they say mild.</li>
+      <li>The group asks questions for 4–10 minutes.</li>
+      <li><strong>Ask</strong> interested <strong>questions, not</strong> interesting <strong>ones.</strong> An interested question keeps the light on them. An interesting question is secretly about you.</li>
+      <li>They can decline anything, no reason given.</li>
+      <li>Anyone can say <em>"thank you"</em> mid-answer, which means stop talking now — even mid-sentence. It keeps answers hot instead of rambling.</li>
+      <li>Whoever's holding the card ends it: <em>"…and we'll take you off the hot seat there."</em> End on a high note, not a low one.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Go round the group with <em>"What I get about you is…"</em> before the next person sits down. Don't skip this.</div>
+      <div class="src">AR Games Manual v7 · Authentic World<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">Rooms of the Heart</h2>
+    <div class="spec">
+      <div><b>People</b><span>3–4</span></div>
+      <div><b>Time</b><span>20–30 min</span></div>
+      <div><b>Space</b><span>Small circle</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Pick who goes first. They finish this sentence: <em>"If my heart had different rooms, the one I spend most time in is…"</em> — a playful room, a working room, a waiting room, whatever they've got.</li>
+      <li><strong>4 min:</strong> the group gets curious about that room. Ask questions. What's in it? Who else is allowed in? When were they last there?</li>
+      <li>They also say what it's like <strong>having these particular people in the room</strong> with them right now.</li>
+      <li><strong>4 min:</strong> everyone else answers — <em>"I have a room like that too, and mine is…"</em></li>
+      <li>Move to the next person.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Once everyone's shown a room. Nobody has to pick the deepest one they've got.</div>
+      <div class="src">AR Games Manual v7 · Sara Ness &amp; Jennifer Ott<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip on"></i></span></span>
+    </div>
+    <h2 class="title">Who Are You?</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>15 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B.</li>
+      <li>A asks: <strong>"Who are you?"</strong> — B answers for 2 minutes. Keep going past the obvious answers; that's where it starts.</li>
+      <li>A asks: <strong>"Who do you pretend to be?"</strong> — B answers for 2 minutes.</li>
+      <li>Now B asks A: <strong>"Who do you think I am?"</strong> — A answers for 2 minutes, honestly, from the last few minutes of evidence.</li>
+      <li>A minute or two to talk about what that was like. Then swap roles and run the whole thing again.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>The third question is the one people remember. Don't rush it, and don't be polite in it.</div>
+      <div class="src">AR Games Manual v7 · Patrick Wolf<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Reach Out</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>5–10 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Both of you have to want this</div>
+    <ul class="steps">
+      <li>Sit facing each other. This whole game is <strong>nonverbal.</strong></li>
+      <li><strong>A minute or more:</strong> connect using <strong>fingertips only.</strong> Play, follow, lead, rest. See what a very small amount of contact actually feels like.</li>
+      <li><strong>Then:</strong> whole hands.</li>
+      <li><strong>Then:</strong> hands and forearms.</li>
+      <li>Try a round with eyes closed and a round with eyes open. Notice which one you avoided.</li>
+      <li>Either person can stop at any point by lowering their hands. No explanation needed and none asked for.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Talk about it afterwards. Two minutes each on what you noticed in your own body.</div>
+      <div class="src">AR Games Manual v7<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Go deeper · Tier 3</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Touch My Elbow</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>10–15 min</span></div>
+      <div><b>Space</b><span>Sitting anywhere</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Both of you have to want this</div>
+    <ul class="steps">
+      <li>Whoever has the longest sleeves goes first.</li>
+      <li>Take turns making a request in this exact form: <em>"I'd like my ___ to be touched."</em> Be specific. Elbow, shoulder blade, left ear, back of the hand.</li>
+      <li>Your partner either lightly touches that spot, or <strong>declines.</strong> Both are completely ordinary answers and neither one needs a reason.</li>
+      <li>Twister rule: once you're touching a spot, keep touching it until you need that hand somewhere else.</li>
+      <li>If they decline, <strong>you touch that spot yourself.</strong></li>
+      <li>If you'd rather not be touched on skin, name a piece of clothing — a sleeve, a collar, a shoelace. That's a full answer, not a lesser one.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>The game is really about asking for something precisely, and finding out that a no costs nothing.</div>
+      <div class="src">AR Games Manual v7 · Walt Stein<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Close it out · Tier 4</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Unconditional Hugs</h2>
+    <div class="spec">
+      <div><b>People</b><span>10–24</span></div>
+      <div><b>Time</b><span>10–15 min</span></div>
+      <div><b>Space</b><span>Two circles</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · All of it, before anyone moves</div>
+    <ul class="steps">
+      <li>Half the group stands in an outer circle facing in. The other half forms an inner circle facing out.</li>
+      <li><strong>The outer circle closes their eyes.</strong></li>
+      <li><strong>The consent signal:</strong> if you don't want to be hugged, stay in the circle with your eyes closed and <strong>wrap your own arms around yourself.</strong> That's it. Nobody asks about it, nobody comments on it, and you can put your arms up or down at any point.</li>
+      <li>The inner circle wanders and hugs whoever is open. <strong>Tap them on the arm or shoulder first</strong> so nobody gets startled.</li>
+      <li>Play it silently — that's what keeps the hugger anonymous, and it's why the game works.</li>
+      <li>After a few minutes, swap which circle has their eyes closed.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Talk in pairs about what it was like to receive without knowing who from.</div>
+      <div class="src">AR Games Manual v7 · Daniel Johnson<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TIER 4 ============ -->
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Close it out · Tier 4</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Appreciation Dyads</h2>
+    <div class="spec">
+      <div><b>People</b><span>Pairs</span></div>
+      <div><b>Time</b><span>10–12 min</span></div>
+      <div><b>Space</b><span>Sit facing each other</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>Pick an A and a B. <strong>5 minutes each</strong> on one sentence stem, over and over:</li>
+      <li><em>"Being with you, I appreciate…"</em></li>
+      <li>It can be about them, about yourself, or about what's happening between you. It has to be about <strong>right now</strong>, not about the general idea of them.</li>
+      <li>Five minutes is longer than it sounds. <strong>The first two run dry, and then it gets good</strong> — the digging for something new is where the connection actually happens. Don't stop early.</li>
+      <li>Swap. If there's time, swap partners entirely and go again.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Say thank you and mean it. This is a good last thing to do before people start packing up.</div>
+      <div class="src">AR Games Manual v7 · Ross Cooper<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Close it out · Tier 4</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">The Love Blaster</h2>
+    <div class="spec">
+      <div><b>People</b><span>4+ (builds 1 → 2 → 4)</span></div>
+      <div><b>Time</b><span>15 min</span></div>
+      <div><b>Space</b><span>Anywhere with objects</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li><strong>Alone, 2 min:</strong> pick any object near you — a leaf, a shoe, a thermos. Appreciate everything about it. Then close your eyes and notice what <em>appreciating</em> feels like from the inside.</li>
+      <li><strong>In pairs, 3 min:</strong> pick a new object together. Appreciate it out loud to each other, like you're two insufferable people at an art gallery.</li>
+      <li><strong>Find another pair. 2 min:</strong> you two <strong>whisper to each other about them</strong> — everything you notice and appreciate — while they do the same about you. Gossip, but nice.</li>
+      <li><strong>3 min:</strong> now say all of it out loud, to their faces.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Close your eyes for thirty seconds and notice the feeling of appreciation still sitting in you.</div>
+      <div class="src">AR Games Manual v7 · Sara Ness<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="card">
+    <div class="band">
+      <span class="tier">Close it out · Tier 4</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip on"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Shower of Love</h2>
+    <div class="spec">
+      <div><b>People</b><span>5–20</span></div>
+      <div><b>Time</b><span>1–2 min per person</span></div>
+      <div><b>Space</b><span>Any circle</span></div>
+    </div>
+    <div class="cue">Someone read this out loud · Set a timer</div>
+    <ul class="steps">
+      <li>One person at a time is the focus. They just sit there and take it.</li>
+      <li>Everyone else calls out <strong>single words or short phrases</strong> — a quality they see, an impact this person has, something they've noticed today.</li>
+      <li>Anyone can speak, in any order, over each other. <strong>You can repeat a word someone else said</strong> if you agree with it. Let it overlap into a collage.</li>
+      <li>Set a timer for 90 seconds. When it goes, whoever's holding the card says <em>"thank you"</em> and you move to the next person.</li>
+      <li>The timer matters. Without it this either drifts or gets uneven, and uneven is worse.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>Everyone gets a turn or nobody does. Don't start unless there's time for the whole circle.</div>
+      <div class="src">AR Games Manual v7 · Sara Ness<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="band">
+      <span class="tier">Close it out · Tier 4</span>
+      <span class="dial"><span class="lbl">Exposure</span><span class="pips"><i class="pip on"></i><i class="pip"></i><i class="pip"></i></span></span>
+    </div>
+    <h2 class="title">Like, Like, GOOSE!</h2>
+    <div class="spec">
+      <div><b>People</b><span>8–20</span></div>
+      <div><b>Time</b><span>15–20 min</span></div>
+      <div><b>Space</b><span>Circle on open grass</span></div>
+    </div>
+    <div class="cue">Someone read this out loud</div>
+    <ul class="steps">
+      <li>Everyone sits in a circle. One person walks around the outside.</li>
+      <li>They lightly touch each person's head or shoulder and say <strong>one word they like about that person.</strong> <em>"Curious." "Warm." "Loud."</em></li>
+      <li>When they're ready, instead of a compliment they shout <strong>"GOOSE!"</strong> — and run.</li>
+      <li>The goose chases them around the circle. If the goose tags them before they reach the empty spot, the walker goes again. If not, the goose becomes the new appreciator.</li>
+      <li>If you don't know someone well, say what you've noticed in the last hour. It works fine.</li>
+    </ul>
+    <div class="foot">
+      <div class="close"><b>End it here</b>When people are lying on the grass laughing and nobody wants to run any more. That's the picnic over.</div>
+      <div class="src">AR Games Manual v7 · Megan Rose Browning<br>Authentic Revolution · CC BY-SA</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
