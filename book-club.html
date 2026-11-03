@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Madeleines and Magdalenes</title>
+<meta name="description" content="Two year-long Sunday reading groups at Ossington House in 2027: In Search of Lost Time, and a secular study of the Bible.">
+<style>
+/* A twelve-column page set like an exhibition catalogue: tight, large Times for titles,
+   widely tracked Courier for small matter, images placed as plates inside the text. */
+:root {
+  --paper: #FFFFFF;
+  --ink: #000000;
+  --quiet: #6B6B6B;
+  --serif: "Times New Roman", Times, "Liberation Serif", serif;
+  --mono: "Courier New", Courier, "Liberation Mono", monospace;
+  --gap: 24px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+::selection { background: var(--ink); color: var(--paper); }
+img { display: block; width: 100%; height: auto; max-width: 100%; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+p { margin: 0; }
+p + p { text-indent: 1.6em; }
+
+.page { max-width: 1240px; margin: 0 auto; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+/* small matter: Courier, uppercase, spaced out */
+.mono {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+/* ---------- opening ---------- */
+.top { padding-top: 28px; row-gap: 8px; }
+.top .left  { grid-column: 1 / 7; }
+.top .right { grid-column: 9 / 13; text-align: right; }
+
+h1 {
+  grid-column: 1 / -1;
+  margin: 18vh 0 0;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 8.6vw, 7.8rem);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+}
+h1 span { display: block; }
+h1 .l1 { font-size: 0.42em; letter-spacing: 0.02em; margin-bottom: 0.35em; }
+h1 .l2 { padding-left: 12%; }
+h1 .l3 { padding-left: 30%; }
+h1 i { letter-spacing: -0.02em; }
+
+.opening { margin-top: 12vh; align-items: end; }
+.opening .plate  { grid-column: 7 / 12; grid-row: 1; }
+.opening .text   { grid-column: 2 / 6; grid-row: 1; }
+.opening .text p:first-child::first-line { letter-spacing: 0.08em; }
+
+.particulars {
+  margin: 56px 0 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 28px;
+  row-gap: 4px;
+}
+.particulars dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--quiet); padding-top: 4px; }
+.particulars dd { margin: 0; }
+.opening .text ul { list-style: none; margin: 0.6em 0 0.8em; padding: 0 0 0 1.6em; }
+.opening .text ul li::before { content: "\2013\00a0\00a0"; margin-left: -1.1em; }
+sup { font-size: 0.62em; line-height: 0; vertical-align: 0.6em; margin-left: 0.08em; }
+sup a { text-decoration: none; font-family: var(--mono); }
+.notes { position: relative; margin: 44px 0 0; padding: 18px 0 0 1.6em; }
+.notes::before { content: ""; position: absolute; top: 0; left: 0; width: 5em; border-top: 1px solid var(--ink); }
+.notes li { font-size: 14px; line-height: 1.45; color: var(--quiet); padding-left: 0.3em; }
+.notes li + li { margin-top: 6px; }
+.notes li::marker { font-family: var(--mono); font-size: 12px; }
+.notes li:target { color: var(--ink); }
+
+/* ---------- the two groups ---------- */
+.numeral {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+}
+h2 {
+  margin: 0;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.4rem, 5.4vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* I. Proust */
+.proust { margin-top: 26vh; }
+.proust .numeral { grid-column: 1 / 3; padding-top: 1.4em; }
+.proust h2       { grid-column: 3 / 12; }
+.proust .body    { grid-column: 3 / 8; grid-row: 2; margin-top: 56px; }
+.proust .margin  { grid-column: 9 / 11; grid-row: 2; margin-top: 64px; align-self: start; }
+.proust .margin img { transform: rotate(-1.5deg); }
+
+/* schedules: Courier for number and date, Times for the reading */
+.schedule { list-style: none; margin: 72px 0 0; padding: 0; }
+.schedule li {
+  display: grid;
+  grid-template-columns: 3.2em 9.5em minmax(0, 1fr);
+  column-gap: 12px;
+  padding-block: 7px;
+  align-items: baseline;
+}
+.schedule .n, .schedule .d { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; }
+.schedule .n { color: var(--quiet); }
+.schedule li.pause { color: var(--quiet); font-style: italic; padding-block: 18px; }
+.proust .schedule { grid-column: 3 / 10; grid-row: 3; }
+
+/* paintings that sit in the margins, level with the meeting they belong to */
+.schedule li { position: relative; }
+.mfig { position: absolute; top: 6px; margin: 0; }
+.mfig.r { left: calc(100% + var(--gap)); }
+.mfig.l { right: calc(100% + var(--gap)); }
+.proust .mfig.r { width: 38%; }
+.proust .mfig.l { width: 24%; }
+.bible .mfig.r  { width: 52%; }
+.bible .mfig.l  { width: 46%; }
+
+/* the mosaic sits between the two groups, wide and off-centre */
+.interlude { margin-top: 22vh; }
+.interlude .plate { grid-column: 2 / 10; }
+.interlude .aside { grid-column: 10 / 13; align-self: end; font-style: italic; font-size: 1.05rem; line-height: 1.4; }
+
+/* II. Bible */
+.bible { margin-top: 16vh; }
+.bible .numeral { grid-column: 6 / 7; padding-top: 1.4em; }
+.bible h2       { grid-column: 7 / 13; }
+.bible .plate   { grid-column: 2 / 5; grid-row: 2; margin-top: 56px; align-self: start; }
+.bible .body    { grid-column: 7 / 12; grid-row: 2; margin-top: 56px; }
+.bible .schedule { grid-column: 5 / 10; grid-row: 3; }
+
+/* ---------- applying ---------- */
+.apply { margin-top: 28vh; align-items: start; }
+.apply .tail  { grid-column: 1 / 3; }
+.apply .what  { grid-column: 4 / 13; }
+.apply .big {
+  display: inline-block;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+}
+.apply .big:hover { letter-spacing: 0.22em; }
+.apply .note { margin-top: 36px; max-width: 34em; }
+.apply .steps { margin-top: 28px; }
+
+footer { margin-top: 20vh; padding-bottom: 36px; }
+footer .left  { grid-column: 1 / 8; color: var(--quiet); }
+footer .right { grid-column: 9 / 13; text-align: right; color: var(--quiet); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .apply .big { transition: letter-spacing 0.4s ease; }
+}
+
+/* ---------- narrow screens: six columns, plates alternate sides ---------- */
+@media (max-width: 760px) {
+  body { font-size: 18px; }
+  :root { --gap: 14px; }
+  .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .top .left  { grid-column: 1 / -1; }
+  .top .right { grid-column: 1 / -1; text-align: left; }
+  h1 { margin-top: 12vh; }
+  h1 .l2 { padding-left: 4%; }
+  h1 .l3 { padding-left: 10%; }
+  .opening { margin-top: 8vh; row-gap: 40px; }
+  .opening .plate { grid-column: 2 / 7; grid-row: 1; }
+  .opening .text  { grid-column: 1 / 6; grid-row: 2; }
+  .proust { margin-top: 16vh; }
+  .proust .numeral, .bible .numeral { grid-column: 1 / -1; padding-top: 0; margin-bottom: 14px; }
+  .proust h2, .bible h2 { grid-column: 1 / -1; }
+  .proust .margin { grid-column: 4 / 7; grid-row: auto; margin-top: 40px; }
+  .proust .body   { grid-column: 1 / -1; grid-row: auto; margin-top: 32px; }
+  .proust .schedule, .bible .schedule { grid-column: 1 / -1; grid-row: auto; margin-top: 48px; }
+  .interlude { margin-top: 14vh; row-gap: 20px; }
+  .interlude .plate { grid-column: 1 / -1; }
+  .interlude .aside { grid-column: 3 / 7; }
+  .bible { margin-top: 12vh; }
+  .bible .plate { grid-column: 1 / 4; grid-row: auto; margin-top: 40px; }
+  .bible .body  { grid-column: 1 / -1; grid-row: auto; margin-top: 32px; }
+  .schedule li { grid-template-columns: 2.4em 7.4em minmax(0, 1fr); column-gap: 8px; }
+  .mfig, .proust .mfig.r, .proust .mfig.l, .bible .mfig.r, .bible .mfig.l {
+    position: static; grid-column: 1 / -1; width: 58%; margin: 18px 0 14px;
+  }
+  .mfig.r { justify-self: end; }
+  .mfig.l { justify-self: start; }
+  .apply { margin-top: 16vh; row-gap: 32px; }
+  .apply .tail { grid-column: 1 / 3; }
+  .apply .what { grid-column: 1 / -1; }
+  .apply .big { letter-spacing: 0.1em; }
+  footer .left, footer .right { grid-column: 1 / -1; text-align: left; }
+  footer .right { margin-top: 8px; }
+}
+@media (max-width: 400px) {
+  .schedule li { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .schedule .n { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="grid top">
+    <div class="left mono">Ossington House, Toronto</div>
+    <div class="right mono">Sundays, 7&ndash;9 pm &nbsp;/&nbsp; 2027&ndash;28</div>
+    <h1><span class="l1">(A year) of</span><span class="l2"><i>Madeleines</i></span><span class="l3">and Magdalenes</span></h1>
+  </header>
+
+  <section class="grid opening">
+    <figure class="plate" style="margin:0"><img src="images/defeure.jpg" alt="" width="800" height="969"></figure>
+    <div class="text">
+      <p>Imagine if you had, in 2026, read both the entire Bible and <i>In Search of Lost Time</i>. You would definitely be much more sophisticated than you are now.</p>
+      <p>You can make this happen in 2027, by joining either course of Madeleines and Magdalenes.</p>
+      <p>We'll have two groups meeting up on Sunday evenings:</p>
+      <ul>
+        <li>A secular<sup><a href="#note-1" id="ref-1" aria-label="Note 1">1</a></sup> study of the Bible</li>
+        <li>A secular study of <i>In Search of Lost Time</i></li>
+      </ul>
+      <p style="text-indent:0">Both will be meeting @ Ossington House.<sup><a href="#note-2" id="ref-2" aria-label="Note 2">2</a></sup></p>
+      <dl class="particulars">
+        <dt>When</dt><dd>Sundays, 7 to 9 pm</dd>
+        <dt>From</dt><dd>January 2027</dd>
+        <dt>Cost</dt><dd>Nothing</dd>
+      </dl>
+      <ol class="notes">
+        <li id="note-1">Everyone is welcome regardless of religious belief, but this course of study will require you to engage in a secular lens, and accept some secular premises for the sake of discussion. <a href="#ref-1" aria-label="Back to text">&uarr;</a></li>
+        <li id="note-2">If you don't already know where this is, it will be revealed. <a href="#ref-2" aria-label="Back to text">&uarr;</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="grid proust" aria-labelledby="proust-title">
+    <div class="numeral">I.</div>
+    <h2 id="proust-title">In Search of Lost Time</h2>
+
+    <figure class="margin" style="margin-left:0;margin-right:0;margin-bottom:0"><img src="images/notebook.jpg" alt="" width="293" height="350"></figure>
+
+    <div class="body">
+      <p>The required readings will be about eighty pages a week, from the first line of <i>Swann's Way</i> to the last of <i>Time Regained</i>. Each meeting falls at one of Proust's own breaks, so we always talk about a whole movement of the book. Reading begins on Sunday, January 3.</p>
+    </div>
+
+    <ol class="schedule">
+      <li><span class="n">1</span><span class="d">31 Jan 2027</span><span>Overture and &ldquo;Combray&rdquo;</span><figure class="mfig l"><img src="images/giotto.jpg" alt="" width="374" height="790"></figure></li>
+      <li><span class="n">2</span><span class="d">21 Feb</span><span>&ldquo;Swann in Love&rdquo;; &ldquo;Place-Names: The Name&rdquo;</span></li>
+      <li><span class="n">3</span><span class="d">14 Mar</span><span>&ldquo;Madame Swann at Home&rdquo;</span></li>
+      <li><span class="n">4</span><span class="d">18 Apr</span><span>&ldquo;Place-Names: The Place&rdquo;, Balbec</span><figure class="mfig r"><img src="images/whistler.jpg" alt="" width="794" height="503"></figure></li>
+      <li><span class="n">5</span><span class="d">30 May</span><span><i>The Guermantes Way</i>, I</span></li>
+      <li><span class="n">6</span><span class="d">4 Jul</span><span><i>The Guermantes Way</i>, II</span></li>
+      <li><span class="n">7</span><span class="d">1 Aug</span><span><i>Sodom and Gomorrah</i>, I and II.1</span></li>
+      <li><span class="n">8</span><span class="d">12 Sep</span><span><i>Sodom and Gomorrah</i>, II.2&ndash;4</span></li>
+      <li><span class="n">9</span><span class="d">17 Oct</span><span><i>The Captive</i></span><figure class="mfig r"><img src="images/vermeer.jpg" alt="" width="800" height="662"></figure></li>
+      <li><span class="n">10</span><span class="d">21 Nov</span><span><i>The Fugitive</i></span></li>
+      <li><span class="n">11</span><span class="d">12 Dec</span><span><i>Time Regained</i>, Tansonville and wartime Paris</span></li>
+      <li><span class="n">12</span><span class="d">9 Jan 2028</span><span><i>Time Regained</i>, the last matin&eacute;e</span></li>
+    </ol>
+  </section>
+
+  <section class="grid interlude">
+    <figure class="plate" style="margin:0"><img src="images/ravenna.jpg" alt="" width="686" height="447"></figure>
+    <p class="aside">Believers and non-believers are equally welcome. No background is needed.</p>
+  </section>
+
+  <section class="grid bible" aria-labelledby="bible-title">
+    <div class="numeral">II.</div>
+    <h2 id="bible-title">A Secular Bible Study</h2>
+
+    <figure class="plate" style="margin-left:0;margin-right:0;margin-bottom:0"><img src="images/akedah.jpg" alt="" width="400" height="529"></figure>
+
+    <div class="body">
+      <p>A historical reading of the Hebrew Bible and the New Testament. Each week you watch one lecture, about fifty minutes, from Yale's free courses by <a href="https://oyc.yale.edu/religious-studies/rlst-145" target="_blank" rel="noopener">Christine Hayes</a> and <a href="https://oyc.yale.edu/religious-studies/rlst-152" target="_blank" rel="noopener">Dale B. Martin</a>, and read the passages that go with it.</p>
+      <p>Any modern translation with notes will do; the <i>New Oxford Annotated Bible</i> is a good one. Lectures begin the week of January 10.</p>
+    </div>
+
+    <ol class="schedule">
+      <li><span class="n">1</span><span class="d">7 Feb 2027</span><span>Origins, Genesis 1&ndash;11</span><figure class="mfig r"><img src="images/babel.jpg" alt="" width="794" height="578"></figure></li>
+      <li><span class="n">2</span><span class="d">7 Mar</span><span>Patriarchs and Exodus</span></li>
+      <li><span class="n">3</span><span class="d">4 Apr</span><span>Law and ritual</span></li>
+      <li><span class="n">4</span><span class="d">25 Apr</span><span>Joshua through Kings</span></li>
+      <li><span class="n">5</span><span class="d">6 Jun</span><span>The prophets</span></li>
+      <li><span class="n">6</span><span class="d">11 Jul</span><span>Wisdom, poetry, and endings</span><figure class="mfig r"><img src="images/belshazzar.jpg" alt="" width="794" height="630"></figure></li>
+      <li class="pause"><span class="n"></span><span class="d">Summer</span><span>A break. The New Testament begins 29 August.</span></li>
+      <li><span class="n">7</span><span class="d">19 Sep</span><span>The world of the New Testament</span></li>
+      <li><span class="n">8</span><span class="d">24 Oct</span><span>The Gospels and Acts</span><figure class="mfig l"><img src="images/kells.jpg" alt="" width="760" height="1058"></figure></li>
+      <li><span class="n">9</span><span class="d">14 Nov</span><span>John, and the historical Jesus</span></li>
+      <li><span class="n">10</span><span class="d">19 Dec</span><span>Paul</span></li>
+      <li><span class="n">11</span><span class="d">30 Jan 2028</span><span>Thecla, Hebrews, Revelation</span></li>
+      <li><span class="n">12</span><span class="d">20 Feb 2028</span><span>Bishops, martyrs, afterlives</span></li>
+    </ol>
+  </section>
+
+  <section class="grid apply" id="apply" aria-labelledby="apply-title">
+    <figure class="tail" style="margin:0"><img src="images/jericho.jpg" alt="" width="320" height="320"></figure>
+    <div class="what">
+      <h2 id="apply-title" class="mono" style="font-style:normal;letter-spacing:0.32em;margin-bottom:28px">To join</h2>
+      <!-- Replace YOUR_GOOGLE_FORM_LINK with the form's share link -->
+      <a class="big" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noopener">Apply</a>
+    </div>
+  </section>
+
+  <footer class="grid">
+    <div class="left mono">Hosted by Georgia Berg</div>
+    <div class="right mono">Lectures: Open Yale Courses</div>
+  </footer>
+
+</div>
+</body>
+</html>
